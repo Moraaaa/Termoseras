@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it" class="menu-page">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Menu</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER MENU: stesso gutter della UI -->
+  <header class="menu-head" role="banner" aria-label="Menu">
+    <div class="container menu-head__inner">
+      <a class="menu-head__brand" href="index.html">
+        <span class="brand__dot"></span>
+        <span>Termoseras</span>
+      </a>
+      <button class="menu-close" aria-label="Chiudi menu">×</button>
+    </div>
+  </header>
+
+  <!-- CARD MENU -->
+  <div class="menu-wrap">
+    <div class="menu-card">
+      <div class="menu-card__title">Navigazione</div>
+      <ul class="menu-list" role="navigation" aria-label="Navigazione mobile">
+        <li class="menu-item"><a class="menu-link" href="index.html">Home</a></li>
+        <li class="menu-item"><a class="menu-link" href="prodotti.html">Prodotti</a></li>
+        <li class="menu-item"><a class="menu-link" href="chi-siamo.html">Chi siamo</a></li>
+        <li class="menu-item"><a class="menu-link" href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Chiudi: torna indietro; fallback alla home se aperto direttamente
+    const closeBtn = document.querySelector('.menu-close');
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (document.referrer && document.referrer.indexOf(location.origin) === 0) {
+        history.back();
+      } else {
+        location.replace('index.html');
+      }
+    });
+    // Accessibilità: chiudi con ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeBtn.click();
+    });
+  </script>
+
+  <noscript>
+    <div class="container" style="padding:16px;color:#9aa4ad">JavaScript disabilitato: usa i link sopra per navigare.</div>
+  </noscript>
+</body>
+</html>
