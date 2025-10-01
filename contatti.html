@@ -1,359 +1,393 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contatti — Termoseras</title>
-  <meta name="description" content="Contatta Termoseras: richieste B2B, campioni e preventivi per nocciolo, scopino, riccio in PVC, manico per riccio, tazze, rullino portarotoli. MOQ 100 pezzi.">
-  <link rel="icon" href="assets/logo.svg" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="container site-nav">
-      <a class="brand" href="index.html"><span class="brand__dot"></span><span>Termoseras</span></a>
-
-      <a class="burger" href="menu.html" aria-label="Apri menu">
-        <span class="burger__bar"></span><span class="burger__bar"></span><span class="burger__bar"></span>
-      </a>
-
-      <nav class="nav-links" aria-label="Navigazione principale">
-        <a href="index.html">Home</a>
-        <a href="prodotti.html">Prodotti</a>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="contatti.html" aria-current="page">Contatti</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" style="--hero:url('assets/hero-contatti.jpg')" aria-label="Contatti">
-    <div class="container hero__inner">
-      <div class="eyebrow">B2B • Preventivi & Campioni</div>
-      <h1 class="hero__title">Parliamo del tuo progetto</h1>
-      <p class="hero__text">Risposte rapide e specifiche. MOQ <strong>100 pezzi</strong>. <strong>Campioni</strong> disponibili.</p>
-      <a class="btn" href="#contattaci">Vai al form</a>
-    </div>
-  </section>
-
-  <!-- FORM + CONTATTI DIRETTI -->
-  <section class="section" id="contattaci" aria-label="Contattaci">
-    <div class="container">
-      <div class="section__head">
-        <h2 class="section__title">Contattaci</h2>
-        <p class="section__desc">Compila il modulo o usa i nostri contatti diretti. Articoli e versioni sono facoltativi e multipli.</p>
-      </div>
-
-      <div class="contact-grid">
-        <!-- CARD: FORM -->
-        <div class="card card--full">
-
-          <div class="card__body">
-            <form class="form form--compact" id="contact-form" method="post" action="#">
-
-  <!-- Dettagli aziendali -->
-  <div class="field-wrap">
-    <input class="field" type="text" name="azienda" placeholder="Azienda *" required aria-label="Azienda">
-  </div>
-  <div class="field-wrap">
-    <input class="field" type="text" name="nominativo" placeholder="Nome e cognome *" required aria-label="Nome e cognome">
-  </div>
-
-  <!-- Contatti -->
-  <div class="field-wrap">
-    <input class="field" id="email" type="email" name="email"
-           placeholder="Email *" required aria-label="Email"
-           pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
-    <div class="error-text" id="email-error"></div>
-  </div>
-  <div class="field-wrap">
-    <input class="field" id="telefono" type="tel" name="telefono"
-           placeholder="Telefono (es. +39 02 1234567)" aria-label="Telefono"
-           inputmode="tel" pattern="[0-9()+.\s-]{7,20}">
-    <div class="error-text" id="tel-error"></div>
-  </div>
-
-  <!-- Tipo di richiesta -->
-  <fieldset class="full" style="margin-top:6px">
-    <div class="legend">Tipo di richiesta</div>
-    <div class="radios">
-      <label class="radio"><input type="radio" name="tipo_richiesta" value="Preventivo" checked><span>Preventivo</span></label>
-      <label class="radio"><input type="radio" name="tipo_richiesta" value="Campioni"><span>Campioni</span></label>
-      <label class="radio"><input type="radio" name="tipo_richiesta" value="Informazioni"><span>Informazioni</span></label>
-    </div>
-  </fieldset>
-
-  <!-- Articoli (multipla, facoltativa) -->
-  <fieldset class="full" style="margin-top:6px">
-    <div class="legend">Articoli di interesse (multipla, facoltativa)</div>
-    <div class="checks-grid" id="articoli-list">
-      <label class="check"><input type="checkbox" name="articoli[]" value="Nocciolo" data-key="nocciolo"><span>Nocciolo</span></label>
-      <label class="check"><input type="checkbox" name="articoli[]" value="Scopino" data-key="scopino"><span>Scopino</span></label>
-      <label class="check"><input type="checkbox" name="articoli[]" value="Riccio in PVC" data-key="riccio"><span>Riccio in PVC</span></label>
-      <label class="check"><input type="checkbox" name="articoli[]" value="Manico per riccio" data-key="manico"><span>Manico per riccio</span></label>
-      <label class="check"><input type="checkbox" name="articoli[]" value="Tazze" data-key="tazze"><span>Tazze</span></label>
-      <label class="check"><input type="checkbox" name="articoli[]" value="Rullino portarotoli" data-key="rullino"><span>Rullino portarotoli</span></label>
-    </div>
-  </fieldset>
-
-  <!-- Versioni dinamiche -->
-  <fieldset id="versions-fieldset" class="full" hidden>
-    <div class="legend">Versioni (facoltative, dipendono dagli articoli selezionati)</div>
-    <div id="versions-container"></div>
-  </fieldset>
-
-  <!-- Messaggio -->
-  <div class="field-wrap full">
-    <textarea class="field textarea" name="messaggio" rows="6" placeholder="Messaggio (incastri/filetti, rasatura Ø, colori, note) *" required aria-label="Messaggio"></textarea>
-  </div>
-
-  <!-- Privacy -->
-  <div class="full" style="margin-top:-4px">
-    <label style="display:flex;align-items:flex-start;gap:10px;line-height:1.4; color:var(--muted)">
-      <input type="checkbox" required aria-label="Accetto la privacy" style="margin-top:4px">
-      <span>Ho letto e accetto la <a href="#" style="text-decoration:underline">Privacy Policy</a>.</span>
-    </label>
-  </div>
-
-  <!-- Submit -->
-  <div class="full" style="display:flex; justify-content:flex-end; margin-top:6px">
-    <button class="btn" type="submit">Invia richiesta</button>
-  </div>
-</form>
-
-
-          </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Termoseras — Home</title>
+    <meta name="description" content="Scopini di ricambio e teste in ottone per l’industria del bagno. Qualità assoluta, produzione interna, incastri e filetti.">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Favicons con gestione tema -->
+    <link rel="icon" type="image/png" href="assets/darklogo.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="assets/lightlogo.png" media="(prefers-color-scheme: dark)">
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header" role="banner">
+      <div class="container site-nav">
+        <!-- Logo sinistro / mobile -->
+        <a class="brand" href="index.html">
+          <!-- Desktop: solo scritta -->
+          <img src="assets/soloscritta.svg" alt="Termoseras" class="logo-desktop-left">
+          <!-- Mobile: logo completo -->
+          <img src="assets/logo.svg" alt="Termoseras" class="logo-mobile-left">
+        </a>
+        <!-- Logo centrale solo desktop -->
+        <div class="logo-center">
+          <img src="assets/logo.svg" alt="Logo Termoseras">
         </div>
-
-        <!-- CARD: CONTATTI DIRETTI -->
-        <aside class="card contact-card">
-          <div class="card__body">
-            <h3 class="card__title" style="margin-bottom:6px">Contatti diretti</h3>
-            <p class="card__text" style="margin-bottom:8px">Preferisci scrivere o chiamare?</p>
-            <div class="contact-links">
-              <!-- 🔁 Sostituisci con i tuoi dati reali -->
-              <a href="mailto:info@termoseras.it"><span>✉︎</span><span>info@termoseras.it</span></a>
-              <a href="tel:+39021234567"><span>☎︎</span><span>+39 02 123 4567</span></a>
-            </div>
-            <p class="card__text" style="margin-top:10px;color:var(--muted)">Siamo disponibili nei giorni lavorativi.</p>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Nota -->
-      <p style="text-align:center; color:var(--muted); margin-top:14px">
-        Ti rispondiamo in tempi rapidi. Ricordiamo MOQ 100 pezzi e disponibilità campioni.
-      </p>
-    </div>
-  </section>
-
-  <!-- CTA FINALE -->
-  <section class="section" aria-label="Altre richieste">
-    <div class="container">
-      <div class="cta">
-        <div>
-          <div class="eyebrow">Serve altro?</div>
-          <h3 style="margin:6px 0 8px">Hai disegni o specifiche tecniche?</h3>
-          <p style="margin:0;color:var(--muted)">Indicale nel messaggio oppure allegale nella tua email di risposta.</p>
-        </div>
-        <a class="btn" href="#contattaci">Torna al form</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4 class="footer-col__title">TERMOSERAS</h4>
-          <p>Parte del <strong>Gruppo Tre A</strong>.</p>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col__title">AZIENDA</h4>
+        <!-- Burger menu (mobile) -->
+        <a class="burger" href="menu.html" aria-label="Apri menu">
+          <span class="burger__bar"></span>
+          <span class="burger__bar"></span>
+          <span class="burger__bar"></span>
+        </a>
+        <!-- Menu desktop -->
+        <nav class="nav-links" aria-label="Navigazione principale">
+          <a href="index.html">Home</a>
+          <a href="prodotti.html">Prodotti</a>
           <a href="chi-siamo.html">Chi siamo</a>
-          <a href="contatti.html" aria-current="page">Contatti</a>
+          <a href="contatti.html">Contatti</a>
+        </nav>
+      </div>
+    </header>
+    <!-- HERO -->
+    <section class="hero" style="--hero:url('assets/hero-contatti.jpg')" aria-label="Contatti">
+      <div class="container hero__inner">
+        <h1 class="hero__title">Contatti</h1>
+        <p class="hero__text">Informazioni e riferimenti</p>
+        <a class="btn" href="#contattaci">Vai al form</a>
+      </div>
+    </section>
+    <!-- FORM + CONTATTI DIRETTI -->
+    <section class="section" id="contattaci" aria-label="Contattaci">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Contattaci</h2>
         </div>
-        <div class="footer-col">
-          <h4 class="footer-col__title">PRODOTTI</h4>
-          <a href="prodotti.html#nocciolo">Nocciolo</a>
-          <a href="prodotti.html#scopino">Scopino</a>
-          <a href="prodotti.html#riccio-pvc">Riccio in PVC</a>
-          <a href="prodotti.html#manico-riccio">Manico per riccio</a>
-          <a href="prodotti.html#tazze">Tazze</a>
-          <a href="prodotti.html#rullino">Rullino portarotoli</a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col__title">LEGALE</h4>
-          <a href="#">Privacy</a>
-          <a href="#">Cookie</a>
-          <a href="#">Condizioni</a>
+        <div class="contact-grid">
+          <!-- CARD: FORM -->
+          <div class="card card--full">
+            <div class="card__body">
+              <form class="form form--compact" id="contact-form" method="post" action="#">
+                <!-- Dettagli aziendali -->
+                <div class="field-wrap">
+                  <input class="field" type="text" name="azienda" placeholder="Azienda *" required aria-label="Azienda">
+                </div>
+                <div class="field-wrap">
+                  <input class="field" type="text" name="nominativo" placeholder="Nome e cognome *" required aria-label="Nome e cognome">
+                </div>
+                <!-- Contatti -->
+                <div class="field-wrap">
+                  <input class="field" id="email" type="email" name="email" placeholder="Email *" required aria-label="Email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
+                  <div class="error-text" id="email-error"></div>
+                </div>
+                <div class="field-wrap">
+                  <input class="field" id="telefono" type="tel" name="telefono" placeholder="Telefono (es. +39 02 1234567)" aria-label="Telefono" inputmode="tel" pattern="[0-9()+.\s-]{7,20}">
+                  <div class="error-text" id="tel-error"></div>
+                </div>
+                <!-- Tipo di richiesta -->
+                <fieldset class="full" style="margin-top:6px">
+                  <div class="legend">Tipo di richiesta</div>
+                  <div class="radios">
+                    <label class="radio">
+                      <input type="radio" name="tipo_richiesta" value="Preventivo" checked>
+                      <span>Preventivo</span>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="tipo_richiesta" value="Campioni">
+                      <span>Campioni</span>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="tipo_richiesta" value="Informazioni">
+                      <span>Informazioni</span>
+                    </label>
+                  </div>
+                </fieldset>
+                <!-- Articoli (multipla, facoltativa) -->
+                <fieldset class="full" style="margin-top:6px">
+                  <div class="legend">Articoli di interesse (multipla, facoltativa)</div>
+                  <div class="checks-grid" id="articoli-list">
+                    <label class="check">
+                      <input type="checkbox" name="articoli[]" value="Nocciolo" data-key="nocciolo">
+                      <span>Nocciolo</span>
+                    </label>
+                    <label class="check">
+                      <input type="checkbox" name="articoli[]" value="Scopino" data-key="scopino">
+                      <span>Scopino</span>
+                    </label>
+                    <label class="check">
+                      <input type="checkbox" name="articoli[]" value="Riccio in PVC" data-key="riccio">
+                      <span>Riccio in PVC</span>
+                    </label>
+                    <label class="check">
+                      <input type="checkbox" name="articoli[]" value="Manico per riccio" data-key="manico">
+                      <span>Manico per riccio</span>
+                    </label>
+                    <label class="check">
+                      <input type="checkbox" name="articoli[]" value="Tazze" data-key="tazze">
+                      <span>Tazze</span>
+                    </label>
+                    <label class="check">
+                      <input type="checkbox" name="articoli[]" value="Rullino portarotoli" data-key="rullino">
+                      <span>Rullino portarotoli</span>
+                    </label>
+                  </div>
+                </fieldset>
+                <!-- Versioni dinamiche -->
+                <fieldset id="versions-fieldset" class="full" hidden>
+                  <div class="legend">Versioni (facoltative, dipendono dagli articoli selezionati)</div>
+                  <div id="versions-container"></div>
+                </fieldset>
+                <!-- Messaggio -->
+                <div class="field-wrap full">
+                  <textarea class="field textarea" name="messaggio" rows="6" placeholder="Messaggio (incastri/filetti, rasatura Ø, colori, note) *" required aria-label="Messaggio"></textarea>
+                </div>
+                <!-- Privacy -->
+                <div class="full" style="margin-top:-4px">
+                  <label style="display:flex;align-items:flex-start;gap:10px;line-height:1.4; color:var(--muted)">
+                    <input type="checkbox" required aria-label="Accetto la privacy" style="margin-top:4px">
+                    <span>Ho letto e accetto la <a href="#" style="text-decoration:underline">Privacy Policy</a>. </span>
+                  </label>
+                </div>
+                <!-- Submit -->
+                <div class="full" style="display:flex; justify-content:flex-end; margin-top:6px">
+                  <button class="btn" type="submit">Invia richiesta</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- CARD: CONTATTI DIRETTI -->
+          <aside class="card contact-card">
+            <div class="card__body">
+              <h3 class="card__title" style="margin-bottom:6px">Contatti diretti</h3>
+              <p class="card__text" style="margin-bottom:8px">Preferisci scrivere o chiamare?</p>
+              <div class="contact-links">
+                <!-- 🔁 Sostituisci con i tuoi dati reali -->
+                <a href="mailto:info@termoseras.it">
+                  <span>✉︎</span>
+                  <span>a.morandini@treasrl.it</span>
+                </a>
+                <a href="tel:+39021234567">
+                  <span>☎︎</span>
+                  <span>+39 030 708 0274</span>
+                </a>
+              </div>
+              <p class="card__text" style="margin-top:10px;color:var(--muted)">Lun–Ven 8:00–12:00 / 13:30–17:30 <br> Sab–Dom chiuso </p>
+            </div>
+          </aside>
         </div>
       </div>
-      <div class="footer-copy">
-        <small>Copyright © 2025 Termoseras S.r.l. Tutti i diritti riservati.</small>
-        <small>Made in Italy</small>
+    </section>
+    <!-- MAPPA / DOVE TROVARCI -->
+    <section class="section" aria-label="Dove trovarci">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Dove trovarci</h2>
+        </div>
+        <div class="card" style="overflow:hidden">
+          <div class="card__body" style="padding:0">
+            <!-- 🔁 Sostituisci l'embed con il tuo indirizzo (Google Maps > Condividi > Incorpora mappa) -->
+            <iframe title="Mappa — Termoseras" aria-label="Mappa con la posizione di Termoseras" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.1568028905995!2d9.951244438566913!3d45.503765272629686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47816c8165ee2285%3A0x2d5e08bbb129addc!2sVia%20del%20Lavoro%2C%2040%2C%2025030%20Castelcovati%20BS!5e0!3m2!1sit!2sit!4v1759220929383!5m2!1sit!2sit" width="100%" height="420" frameborder="0" style="border:0; display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="card__body" style="display:flex;gap:18px;flex-wrap:wrap">
+            <!-- 🔁 Sostituisci con i tuoi dati reali -->
+            <div style="min-width:240px">
+              <h3 class="card__title" style="margin-bottom:6px">Indirizzo</h3>
+              <p class="card__text" style="margin:0"> Via del Lavoro, 40 <br> 25030 Castelcovati (BS) — Italia </p>
+            </div>
+            <div style="min-width:240px">
+              <h3 class="card__title" style="margin-bottom:6px">Orari</h3>
+              <p class="card__text" style="margin:0"> Lun–Ven 8:00–12:00 / 13:30–17:30 <br> Sab–Dom chiuso </p>
+            </div>
+            <div style="min-width:240px">
+              <h3 class="card__title" style="margin-bottom:6px">Accesso</h3>
+              <p class="card__text" style="margin:0"> Ingresso carico/scarico mezzi <br> Parcheggio clienti esterno </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Ordini B2B</div>
+            <h3 style="margin:6px 0 8px">MOQ 100 pezzi • Campioni disponibili</h3>
+            <p style="margin:0;color:var(--muted)"> Indica varianti, diametri e filetti: prepariamo campioni su richiesta per la valutazione del prodotto. </p>
+          </div>
+          <a class="btn" href="contatti.html#contattaci">Richiedi preventivo</a>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 class="footer-col__title">TERMOSERAS</h4>
+            <p>Parte del <strong>Gruppo Tre A</strong>
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">AZIENDA</h4>
+            <a href="chi-siamo.html">Chi siamo</a>
+            <a href="contatti.html">Contatti</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">PRODOTTI</h4>
+            <a href="#nocciolo">Nocciolo</a>
+            <a href="#scopino">Scopino</a>
+            <a href="#riccio-pvc">Riccio in PVC</a>
+            <a href="#manico-riccio">Manico per riccio</a>
+            <a href="#tazze">Tazze</a>
+            <a href="#rullino">Rullino portarotoli</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">LEGALE</h4>
+            <a href="#">Privacy</a>
+            <a href="#">Cookie</a>
+            <a href="#">Condizioni</a>
+          </div>
+        </div>
+        <div class="footer-copy">
+          <small>Copyright © 2025 Termoseras S.r.l. Tutti i diritti riservati.</small>
+          <small>Made in Italy</small>
+        </div>
+      </div>
+    </footer>
+    <!-- JS: validazione + versioni dinamiche -->
+    <script>
+      (function() {
+        /* ===== Validazione email/telefono (no errore finché non esci dal campo) ===== */
+        const form = document.getElementById('contact-form');
+        const email = document.getElementById('email');
+        const tel = document.getElementById('telefono');
+        const emailErr = document.getElementById('email-error');
+        const telErr = document.getElementById('tel-error');
+        const emailWrap = email.closest('.field-wrap');
+        const telWrap = tel.closest('.field-wrap');
+        let emailTouched = false;
+        let telTouched = false;
 
-  <!-- JS: validazione + versioni dinamiche -->
-  <script>
-(function(){
-  /* ===== Validazione email/telefono (no errore finché non esci dal campo) ===== */
-  const form = document.getElementById('contact-form');
-  const email = document.getElementById('email');
-  const tel = document.getElementById('telefono');
-  const emailErr = document.getElementById('email-error');
-  const telErr = document.getElementById('tel-error');
+        function validateEmail(force = false) {
+          if (!emailTouched && !force) return true; // non validare mentre scrive
+          email.setCustomValidity('');
+          email.classList.remove('error');
+          emailWrap.classList.remove('has-error');
+          emailErr.textContent = '';
+          const ok = email.checkValidity();
+          if (!ok) {
+            email.setCustomValidity("Inserisci un'email valida (es. nome@azienda.it).");
+            email.classList.add('error');
+            emailWrap.classList.add('has-error'); // crea spazio solo ora
+            emailErr.textContent = "Email non valida (es. nome@azienda.it).";
+          }
+          return ok;
+        }
 
-  const emailWrap = email.closest('.field-wrap');
-  const telWrap   = tel.closest('.field-wrap');
+        function validateTel(force = false) {
+          if (!telTouched && !force) return true;
+          tel.setCustomValidity('');
+          tel.classList.remove('error');
+          telWrap.classList.remove('has-error');
+          telErr.textContent = '';
+          if (!tel.value) return true; // opzionale
+          const digits = tel.value.replace(/\D/g, '');
+          const okLen = digits.length >= 7 && digits.length <= 15;
+          const okChars = /^[0-9()+\-\.\s]+$/.test(tel.value);
+          const ok = okLen && okChars;
+          if (!ok) {
+            tel.setCustomValidity('Inserisci un numero valido (7–15 cifre). Esempio: +39 02 1234567');
+            tel.classList.add('error');
+            telWrap.classList.add('has-error');
+            telErr.textContent = "Numero non valido (7–15 cifre). Esempio: +39 02 1234567.";
+          }
+          return ok;
+        }
+        email.addEventListener('blur', () => {
+          emailTouched = true;
+          validateEmail(true);
+        });
+        tel.addEventListener('blur', () => {
+          telTouched = true;
+          validateTel(true);
+        });
+        email.addEventListener('input', () => {
+          if (emailTouched) validateEmail(true);
+        });
+        tel.addEventListener('input', () => {
+          if (telTouched) validateTel(true);
+        });
+        form.addEventListener('submit', function(e) {
+          // forza la validazione anche se non sono “toccati”
+          const ok1 = validateEmail(true);
+          const ok2 = validateTel(true);
+          if (!(ok1 && ok2)) {
+            e.preventDefault();
+            if (!ok1) {
+              email.reportValidity();
+              email.focus();
+            } else {
+              tel.reportValidity();
+              tel.focus();
+            }
+          }
+        });
+        /* ===== Versioni dinamiche in base agli articoli selezionati (come prima) ===== */
+        const versionsMap = {
+          nocciolo: ["Nocciolo — Inserto in ottone M/F (M5/M6/M8/M10)", "Nocciolo — Gancio rapido bloccante (fori Ø 8/10/12)"],
+          scopino: ["Scopino — Compatto con inserto in ottone (5/8/10/12/14/17 cm)", "Scopino — Perno laterale pieghevole (50/100 cm)"],
+          riccio: ["Riccio — Piccolo Ø 50 mm", "Riccio — Medio Ø 60 mm", "Riccio — Grande Ø 70 mm"],
+          manico: ["Manico — 50/120 mm — M5/M6", "Manico — 140/170 mm — M5/M6"],
+          tazze: ["Tazza — Ø 75 mm — h 120 mm", "Tazza — Ø 85 mm — h 120 mm"],
+          rullino: ["Rullino — Corsa 95–125 mm"]
+        };
+        const artList = document.getElementById('articoli-list');
+        const vFieldset = document.getElementById('versions-fieldset');
+        const vContainer = document.getElementById('versions-container');
 
-  let emailTouched = false;
-  let telTouched   = false;
-
-  function validateEmail(force=false){
-    if(!emailTouched && !force) return true;       // non validare mentre scrive
-    email.setCustomValidity('');
-    email.classList.remove('error');
-    emailWrap.classList.remove('has-error');
-    emailErr.textContent = '';
-    const ok = email.checkValidity();
-    if(!ok){
-      email.setCustomValidity("Inserisci un'email valida (es. nome@azienda.it).");
-      email.classList.add('error');
-      emailWrap.classList.add('has-error');        // crea spazio solo ora
-      emailErr.textContent = "Email non valida (es. nome@azienda.it).";
-    }
-    return ok;
-  }
-
-  function validateTel(force=false){
-    if(!telTouched && !force) return true;
-    tel.setCustomValidity('');
-    tel.classList.remove('error');
-    telWrap.classList.remove('has-error');
-    telErr.textContent = '';
-    if(!tel.value) return true;                    // opzionale
-    const digits  = tel.value.replace(/\D/g,'');
-    const okLen   = digits.length >= 7 && digits.length <= 15;
-    const okChars = /^[0-9()+\-\.\s]+$/.test(tel.value);
-    const ok = okLen && okChars;
-    if(!ok){
-      tel.setCustomValidity('Inserisci un numero valido (7–15 cifre). Esempio: +39 02 1234567');
-      tel.classList.add('error');
-      telWrap.classList.add('has-error');
-      telErr.textContent = "Numero non valido (7–15 cifre). Esempio: +39 02 1234567.";
-    }
-    return ok;
-  }
-
-  email.addEventListener('blur',  ()=>{ emailTouched = true; validateEmail(true); });
-  tel.addEventListener('blur',    ()=>{ telTouched   = true; validateTel(true);   });
-  email.addEventListener('input', ()=>{ if(emailTouched) validateEmail(true); });
-  tel.addEventListener('input',   ()=>{ if(telTouched)   validateTel(true);   });
-
-  form.addEventListener('submit', function(e){
-    // forza la validazione anche se non sono “toccati”
-    const ok1 = validateEmail(true);
-    const ok2 = validateTel(true);
-    if(!(ok1 && ok2)){
-      e.preventDefault();
-      if(!ok1){ email.reportValidity(); email.focus(); }
-      else    { tel.reportValidity();   tel.focus();   }
-    }
-  });
-
-  /* ===== Versioni dinamiche in base agli articoli selezionati (come prima) ===== */
-  const versionsMap = {
-    nocciolo: [
-      "Nocciolo — Inserto in ottone M/F (M5/M6/M8/M10)",
-      "Nocciolo — Gancio rapido bloccante (fori Ø 8/10/12)"
-    ],
-    scopino: [
-      "Scopino — Compatto con inserto in ottone (5/8/10/12/14/17 cm)",
-      "Scopino — Perno laterale pieghevole (50/100 cm)"
-    ],
-    riccio: [
-      "Riccio — Piccolo Ø 50 mm",
-      "Riccio — Medio Ø 60 mm",
-      "Riccio — Grande Ø 70 mm"
-    ],
-    manico: [
-      "Manico — 50/120 mm — M5/M6",
-      "Manico — 140/170 mm — M5/M6"
-    ],
-    tazze: [
-      "Tazza — Ø 75 mm — h 120 mm",
-      "Tazza — Ø 85 mm — h 120 mm"
-    ],
-    rullino: [
-      "Rullino — Corsa 95–125 mm"
-    ]
-  };
-
-  const artList = document.getElementById('articoli-list');
-  const vFieldset = document.getElementById('versions-fieldset');
-  const vContainer = document.getElementById('versions-container');
-
-  function updateVersions(){
-    const selectedKeys = Array.from(artList.querySelectorAll('input[type="checkbox"]:checked'))
-      .map(i => i.dataset.key);
-
-    vContainer.innerHTML = '';
-    if(selectedKeys.length === 0){
-      vFieldset.hidden = true;
-      return;
-    }
-
-    selectedKeys.forEach(key => {
-      const list = versionsMap[key] || [];
-      if(list.length === 0) return;
-
-      const title = document.createElement('div');
-      title.className = 'legend';
-      title.textContent = (artList.querySelector(`[data-key="${key}"]`)?.value) || key;
-      vContainer.appendChild(title);
-
-      const grid = document.createElement('div');
-      grid.className = 'checks-grid';
-      list.forEach(label => {
-        const wrapper = document.createElement('label');
-        wrapper.className = 'check';
-        const input = document.createElement('input');
-        input.type = 'checkbox';
-        input.name = 'versioni[]';
-        input.value = label;
-        const span = document.createElement('span');
-        span.textContent = label;
-        wrapper.appendChild(input); wrapper.appendChild(span);
-        grid.appendChild(wrapper);
-      });
-      vContainer.appendChild(grid);
-    });
-
-    vFieldset.hidden = false;
-  }
-
-  artList.addEventListener('change', updateVersions);
-
-  // Preselezione da query string (?articolo=scopino&articolo=...)
-  const params = new URLSearchParams(location.search);
-  const qs = params.getAll('articolo');
-  if(qs.length){
-    qs.forEach(q=>{
-      const key = q.toLowerCase();
-      const input = Array.from(artList.querySelectorAll('input[type="checkbox"]'))
-        .find(i => i.dataset.key === key || i.value.toLowerCase() === key);
-      if(input){ input.checked = true; }
-    });
-    updateVersions();
-  }
-})();
-</script>
-
-</body>
+        function updateVersions() {
+          const selectedKeys = Array.from(artList.querySelectorAll('input[type="checkbox"]:checked')).map(i => i.dataset.key);
+          vContainer.innerHTML = '';
+          if (selectedKeys.length === 0) {
+            vFieldset.hidden = true;
+            return;
+          }
+          selectedKeys.forEach(key => {
+            const list = versionsMap[key] || [];
+            if (list.length === 0) return;
+            const title = document.createElement('div');
+            title.className = 'legend';
+            title.textContent = (artList.querySelector(`[data-key="${key}"]`)?.value) || key;
+            vContainer.appendChild(title);
+            const grid = document.createElement('div');
+            grid.className = 'checks-grid';
+            list.forEach(label => {
+              const wrapper = document.createElement('label');
+              wrapper.className = 'check';
+              const input = document.createElement('input');
+              input.type = 'checkbox';
+              input.name = 'versioni[]';
+              input.value = label;
+              const span = document.createElement('span');
+              span.textContent = label;
+              wrapper.appendChild(input);
+              wrapper.appendChild(span);
+              grid.appendChild(wrapper);
+            });
+            vContainer.appendChild(grid);
+          });
+          vFieldset.hidden = false;
+        }
+        artList.addEventListener('change', updateVersions);
+        // Preselezione da query string (?articolo=scopino&articolo=...)
+        const params = new URLSearchParams(location.search);
+        const qs = params.getAll('articolo');
+        if (qs.length) {
+          qs.forEach(q => {
+            const key = q.toLowerCase();
+            const input = Array.from(artList.querySelectorAll('input[type="checkbox"]')).find(i => i.dataset.key === key || i.value.toLowerCase() === key);
+            if (input) {
+              input.checked = true;
+            }
+          });
+          updateVersions();
+        }
+      })();
+    </script>
+  </body>
 </html>
