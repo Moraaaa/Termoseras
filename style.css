@@ -976,7 +976,6 @@ fieldset {
   display: block;
   height: 200px; /* logo scritta a sinistra (desktop) */
   filter: brightness(0) invert(1); /* lo rende bianco */
-  margin-top: -5px;
 }
 
 .logo-center {
