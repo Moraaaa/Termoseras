@@ -23,8 +23,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="0.68055556"
-     inkscape:cx="589.22449"
-     inkscape:cy="437.14286"
+     inkscape:cx="590.69387"
+     inkscape:cy="437.14285"
      inkscape:window-width="1920"
      inkscape:window-height="974"
      inkscape:window-x="-11"
@@ -40,7 +40,8 @@
      id="Layer 1">
     <g
        id="TERMOSERAS"
-       aria-label="TERMOSERAS">
+       aria-label="TERMOSERAS"
+       transform="translate(109.37985,582)">
       <path
          style="font-weight:600;font-size:120px;font-family:Montserrat-SemiBold, Montserrat;white-space:pre"
          d="M 28.32,0 V -70.8 H 0.48 V -84 h 71.28 v 13.2 H 43.92 V 0 Z"
