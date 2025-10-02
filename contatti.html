@@ -148,13 +148,14 @@
                 <!-- Privacy -->
                 <div class="full" style="margin-top:-4px">
                   <label style="display:flex;align-items:flex-start;gap:10px;line-height:1.4; color:var(--muted)">
-                    <input type="checkbox" required aria-label="Accetto la privacy" style="margin-top:4px">
+                    <input type="checkbox" id="privacy" name="privacy" required aria-label="Accetto la privacy" style="margin-top:4px">
                     <span>Ho letto e accetto la <a href="#" style="text-decoration:underline">Privacy Policy</a>. </span>
                   </label>
                 </div>
                 <!-- Submit -->
                 <div class="full" style="display:flex; justify-content:flex-end; margin-top:6px">
                   <button class="btn" type="submit">Invia richiesta</button>
+                  <p id="form-status" role="status" aria-live="polite" style="margin-top:8px;color:var(--muted)"></p>
                 </div>
               </form>
             </div>
@@ -323,12 +324,16 @@
         tel.addEventListener('input', () => {
           if (telTouched) validateTel(true);
         });
-        form.addEventListener('submit', function(e) {
-          // forza la validazione anche se non sono “toccati”
+        // URL della tua App Web Apps Script
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzGO1GXJv372MTyhIUw9-H5MNyH1iQjRFRNuL4Gxg4wnHiW9-sAKgkuHt24mxSfo-VA/exec"; // <--- incolla qui il tuo URL
+
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          // 1) valida email/telefono come prima
           const ok1 = validateEmail(true);
           const ok2 = validateTel(true);
           if (!(ok1 && ok2)) {
-            e.preventDefault();
             if (!ok1) {
               email.reportValidity();
               email.focus();
@@ -336,8 +341,62 @@
               tel.reportValidity();
               tel.focus();
             }
+            return;
+          }
+
+          // 2) raccogli i dati dal form (manteniamo i tuoi "name" attuali)
+          const fd = new FormData(form);
+
+          const tipo = (form.querySelector('input[name="tipo_richiesta"]:checked') || {}).value || "";
+          const articoli = Array.from(form.querySelectorAll('input[name="articoli[]"]:checked')).map(i => i.value);
+          const versioni = Array.from(form.querySelectorAll('input[name="versioni[]"]:checked')).map(i => i.value);
+          const statusEl = document.getElementById('form-status');
+          const submitBtn = form.querySelector('button[type="submit"]');
+
+          const payload = {
+            // mappo i tuoi name → chiavi attese dal backend
+            azienda:   fd.get('azienda') || "",
+            nome:      fd.get('nominativo') || "",
+            email:     fd.get('email') || "",
+            telefono:  fd.get('telefono') || "",
+            tipo:      tipo,                  // "Preventivo" | "Campioni" | "Informazioni"
+            articoli:  articoli,              // array
+            versioni:  versioni,              // opzionale, array
+            messaggio: fd.get('messaggio') || "",
+            privacy:   document.getElementById('privacy')?.checked === true
+          };
+
+          // 3) invia
+          try {
+            statusEl.textContent = "Invio in corso…";
+            submitBtn.disabled = true;
+
+            const res = await fetch(SCRIPT_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            const json = await res.json().catch(() => ({}));
+            if (res.ok && json.ok) {
+              statusEl.textContent = "Richiesta inviata con successo. Ti risponderemo a breve.";
+              form.reset();
+
+              // pulizia UI extra
+              const vFieldset = document.getElementById('versions-fieldset');
+              const vContainer = document.getElementById('versions-container');
+              if (vContainer) vContainer.innerHTML = "";
+              if (vFieldset) vFieldset.hidden = true;
+            } else {
+              statusEl.textContent = "Errore: " + (json.error || "impossibile inviare, riprova.");
+            }
+          } catch (err) {
+            statusEl.textContent = "Errore di rete. Controlla la connessione e riprova.";
+          } finally {
+            submitBtn.disabled = false;
           }
         });
+
         /* ===== Versioni dinamiche in base agli articoli selezionati (come prima) ===== */
         const versionsMap = {
           nocciolo: ["Nocciolo — Inserto in ottone M/F (M5/M6/M8/M10)", "Nocciolo — Gancio rapido bloccante (fori Ø 8/10/12)"],
