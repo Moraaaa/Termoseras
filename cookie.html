@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cookie Policy – Termoseras</title>
+  <meta name="description" content="Informativa cookie – Termoseras">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/darklogo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="assets/lightlogo.png" media="(prefers-color-scheme: dark)">
+  <!-- CookieConsent CSS (per lo stile del pannello preferenze) -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container site-nav">
+      <a class="brand" href="index.html">
+        <img src="assets/soloscritta.svg" class="logo-desktop-left">
+        <img src="assets/logo.svg" class="logo-mobile-left">
+      </a>
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="prodotti.html">Prodotti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="contatti.html">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section" aria-label="Cookie Policy">
+    <div class="container">
+      <div class="section__head">
+        <h1 class="section__title"><br>Cookie Policy</h1>
+      </div>
+
+      <div class="card">
+        <div class="card__body">
+          <p class="card__text">
+            Usiamo cookie tecnici necessari e, previo consenso, cookie analitici di terze parti (Google Analytics 4) e contenuti esterni (es. mappe).
+            Puoi modificare le scelte da
+            <a href="#" data-cc="show-preferencesModal" style="text-decoration:underline">Impostazioni cookie</a>.
+          </p>
+        <br>
+          <h2 class="card__title">Categorie</h2>
+          <ul class="card__text">
+            <li><strong>Necessari:</strong> garantiscono il funzionamento del sito (sempre attivi).</li>
+            <li><strong>Analitici (GA4):</strong> misurano l’uso del sito in forma aggregata; attivi solo con il tuo consenso.</li>
+            <li><strong>Funzionalità:</strong> caricano contenuti di terze parti (es. Google Maps, Google Forms).</li>
+          </ul>
+        <br>
+          <h2 class="card__title">Cookie di terze parti</h2>
+<div class="table-scroll">
+  <table class="policy-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Durata</th>
+        <th>Categoria</th>
+        <th>Descrizione</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_ga*</td>
+        <td>fino a 24 mesi</td>
+        <td>Analitici</td>
+        <td>Google Analytics – statistiche aggregate (attivo solo dopo consenso).</td>
+      </tr>
+      <tr>
+        <td>_gid</td>
+        <td>24 ore</td>
+        <td>Analitici</td>
+        <td>Google Analytics – statistiche di sessione (solo dopo consenso).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+            <br>
+          <h2 class="card__title">Gestione preferenze</h2>
+          <p class="card__text">
+            In qualunque momento puoi
+            <a href="#" data-cc="show-preferencesModal" style="text-decoration:underline">aprire il pannello</a>.
+          </p>
+        <br>
+          <p class="card__text"><small>Ultimo aggiornamento: <time>2025-10-03</time>. Testo informativo non sostitutivo di consulenza legale.</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 class="footer-col__title">TERMOSERAS</h4>
+            <p>Parte del <strong>Gruppo Tre A</strong>
+            </p>
+            <img width="100px" src="assets/logotrea.svg">
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">AZIENDA</h4>
+            <a href="chi-siamo.html">Chi siamo</a>
+            <a href="contatti.html">Contatti</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">PRODOTTI</h4>
+            <a href="#nocciolo">Nocciolo</a>
+            <a href="#scopino">Scopino</a>
+            <a href="#riccio-pvc">Riccio in PVC</a>
+            <a href="#manico-riccio">Manico per riccio</a>
+            <a href="#tazze">Tazze</a>
+            <a href="#rullino">Rullino portarotoli</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">LEGALE</h4>
+            <a href="privacy.html">Privacy</a>
+            <a href="cookie.html">Cookie</a>
+            <a href="#" data-cc="show-preferencesModal">Impostazioni cookie</a>
+          </div>
+        </div>
+        <div class="footer-copy">
+          <small>Copyright © 2025 Termoseras S.r.l. <br>Tutti i diritti riservati.</small>
+          <small>Made in Italy</small>
+        </div>
+      </div>
+    </footer>
+
+  <!-- CookieConsent JS (init minimale per far funzionare i link data-cc) -->
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+
+    // Init compatibile con le altre pagine: nessun tracciamento qui, solo pannello preferenze
+    CookieConsent.run({
+      mode: 'opt-in',
+      cookie: { name: 'cc_cookie' },
+      categories: {
+        necessary:   { enabled: true, readOnly: true },
+        analytics:   { },
+        functionality:{ }
+      },
+      language: { default: 'it' }
+      // niente onConsent/onChange: l'aggiornamento del Consent Mode lo fanno già le altre pagine
+    });
+  </script>
+</body>
+</html>

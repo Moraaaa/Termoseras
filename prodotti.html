@@ -4,47 +4,49 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Termoseras — Prodotti</title>
-    <meta name="description" content="Scopini di ricambio e teste in ottone per l’industria del bagno. Qualità assoluta, produzione interna, incastri e filetti.">
+    <meta name="description" content="Produzione di accessori per il bagno">
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Favicons con gestione tema -->
     <link rel="icon" type="image/png" href="assets/darklogo.png" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" href="assets/lightlogo.png" media="(prefers-color-scheme: dark)">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLEC2STHFB"></script>
+    <!-- Cookie banner (CSS) -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+
+    <!-- Google Consent Mode: default = denied (prima di qualunque tag Google) -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-VLEC2STHFB');
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent','default',{
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied',
+        analytics_storage:'denied',
+        functionality_storage:'denied',
+        personalization_storage:'denied',
+        security_storage:'denied'
+      });
     </script>
   </head>
   <body>
     <!-- HEADER -->
     <header class="site-header" role="banner">
       <div class="container site-nav">
-        <!-- Logo sinistro / mobile -->
         <a class="brand" href="index.html">
-          <!-- Desktop: solo scritta -->
           <img src="assets/soloscritta.svg" class="logo-desktop-left">
-          <!-- Mobile: logo completo -->
           <img src="assets/logo.svg" class="logo-mobile-left">
         </a>
-        <!-- Logo centrale solo desktop -->
         <div class="logo-center">
           <img src="assets/logo.svg">
         </div>
-        <!-- Burger menu (mobile) -->
         <a class="burger" href="menu.html" aria-label="Apri menu">
           <span class="burger__bar"></span>
           <span class="burger__bar"></span>
           <span class="burger__bar"></span>
         </a>
-        <!-- Menu desktop -->
         <nav class="nav-links" aria-label="Navigazione principale">
           <a href="index.html">Home</a>
           <a href="prodotti.html">Prodotti</a>
@@ -53,6 +55,7 @@
         </nav>
       </div>
     </header>
+
     <!-- HERO -->
     <section class="hero" style="--hero:url('assets/hero-prodotti.jpg')" aria-label="Gamma prodotti">
       <div class="container hero__inner">
@@ -61,6 +64,7 @@
         <a class="btn" href="contatti.html#contattaci">Richiedi campioni</a>
       </div>
     </section>
+
     <!-- INDICE RAPIDO -->
     <section class="section" aria-label="Indice rapido">
       <div class="container">
@@ -77,15 +81,14 @@
         </p>
       </div>
     </section>
+
     <!-- ========== NOCCIOLO ========== -->
     <section class="section section--vcenter" id="nocciolo" aria-label="Nocciolo">
       <div class="container">
         <div class="section__head">
           <h2 class="section__title">Nocciolo</h2>
         </div>
-        <!-- versioni affiancate e centrate (width uguale, height auto) -->
         <div class="grid grid--sheets">
-          <!-- Versione 1 -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/nocciolo-ottone.jpg')">
               <img src="assets/stock.jpg">
@@ -94,31 +97,15 @@
               <h3 class="card__title">Nocciolo — Inserto in ottone M/F</h3>
               <table class="table" aria-label="Specifiche Nocciolo ottone">
                 <tbody>
-                  <tr>
-                    <th>Inserto</th>
-                    <td>Ottone Maschio/Femmina</td>
-                  </tr>
-                  <tr>
-                    <th>Passi metrici</th>
-                    <td>M5 • M6 • M8 • M10</td>
-                  </tr>
-                  <tr>
-                    <th>Rasatura setole</th>
-                    <td>Ø 52–70 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero</td>
-                  </tr>
-                  <tr>
-                    <th>Materiali</th>
-                    <td>Struttura e setole in PP; fissaggio con lega anticorrosione</td>
-                  </tr>
+                  <tr><th>Inserto</th><td>Ottone Maschio/Femmina</td></tr>
+                  <tr><th>Passi metrici</th><td>M5 • M6 • M8 • M10</td></tr>
+                  <tr><th>Rasatura setole</th><td>Ø 52–70 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero</td></tr>
+                  <tr><th>Materiali</th><td>Struttura e setole in PP; fissaggio con lega anticorrosione</td></tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- Versione 2 -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/nocciolo-gancio.jpg')">
               <img src="assets/stock.jpg">
@@ -127,26 +114,11 @@
               <h3 class="card__title">Nocciolo — Gancio rapido bloccante</h3>
               <table class="table" aria-label="Specifiche Nocciolo gancio rapido">
                 <tbody>
-                  <tr>
-                    <th>Gancio</th>
-                    <td>Rapido bloccante</td>
-                  </tr>
-                  <tr>
-                    <th>Fori compatibili</th>
-                    <td>Ø 8 • Ø 10 • Ø 12</td>
-                  </tr>
-                  <tr>
-                    <th>Rasatura setole</th>
-                    <td>Ø 52–70 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero</td>
-                  </tr>
-                  <tr>
-                    <th>Materiali</th>
-                    <td>Struttura e setole in PP; fissaggio con lega anticorrosione</td>
-                  </tr>
+                  <tr><th>Gancio</th><td>Rapido bloccante</td></tr>
+                  <tr><th>Fori compatibili</th><td>Ø 8 • Ø 10 • Ø 12</td></tr>
+                  <tr><th>Rasatura setole</th><td>Ø 52–70 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero</td></tr>
+                  <tr><th>Materiali</th><td>Struttura e setole in PP; fissaggio con lega anticorrosione</td></tr>
                 </tbody>
               </table>
             </div>
@@ -154,6 +126,7 @@
         </div>
       </div>
     </section>
+
     <!-- ========== SCOPINO ========== -->
     <section class="section section--vcenter" id="scopino" aria-label="Scopino">
       <div class="container">
@@ -161,7 +134,6 @@
           <h2 class="section__title">Scopino</h2>
         </div>
         <div class="grid grid--sheets">
-          <!-- Compatto -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/scopino-compatto.jpg')">
               <img src="assets/stock.jpg">
@@ -170,31 +142,15 @@
               <h3 class="card__title">Scopino — Compatto con inserto in ottone</h3>
               <table class="table" aria-label="Specifiche Scopino compatto">
                 <tbody>
-                  <tr>
-                    <th>Lunghezze</th>
-                    <td>5 • 8 • 10 • 12 • 14 • 17 cm</td>
-                  </tr>
-                  <tr>
-                    <th>Inserto</th>
-                    <td>Ottone F/M</td>
-                  </tr>
-                  <tr>
-                    <th>Passi metrici</th>
-                    <td>M5 • M6 • M8 • M10</td>
-                  </tr>
-                  <tr>
-                    <th>Rasatura setole</th>
-                    <td>Ø 52–70 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero</td>
-                  </tr>
+                  <tr><th>Lunghezze</th><td>5 • 8 • 10 • 12 • 14 • 17 cm</td></tr>
+                  <tr><th>Inserto</th><td>Ottone F/M</td></tr>
+                  <tr><th>Passi metrici</th><td>M5 • M6 • M8 • M10</td></tr>
+                  <tr><th>Rasatura setole</th><td>Ø 52–70 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero</td></tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- Perno laterale -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/scopino-perno.jpg')">
               <img src="assets/stock.jpg">
@@ -203,22 +159,10 @@
               <h3 class="card__title">Scopino — Perno laterale pieghevole</h3>
               <table class="table" aria-label="Specifiche Scopino perno">
                 <tbody>
-                  <tr>
-                    <th>Lunghezze</th>
-                    <td>50 • 100 cm</td>
-                  </tr>
-                  <tr>
-                    <th>Perno</th>
-                    <td>Laterale, consente piega della testina</td>
-                  </tr>
-                  <tr>
-                    <th>Rasatura setole</th>
-                    <td>Ø 52–70 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero</td>
-                  </tr>
+                  <tr><th>Lunghezze</th><td>50 • 100 cm</td></tr>
+                  <tr><th>Perno</th><td>Laterale, consente piega della testina</td></tr>
+                  <tr><th>Rasatura setole</th><td>Ø 52–70 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero</td></tr>
                 </tbody>
               </table>
             </div>
@@ -226,15 +170,14 @@
         </div>
       </div>
     </section>
+
     <!-- ========== RICCIO IN PVC ========== -->
     <section class="section section--vcenter" id="riccio-pvc" aria-label="Riccio in PVC">
       <div class="container">
         <div class="section__head">
           <h2 class="section__title">Riccio in PVC</h2>
         </div>
-        <!-- 3 per riga su desktop, 1 su mobile, centrate -->
         <div class="grid grid--sheets">
-          <!-- Piccolo -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/riccio-50.jpg')">
               <img src="assets/stock.jpg">
@@ -243,19 +186,12 @@
               <h3 class="card__title">Riccio — Piccolo</h3>
               <table class="table" aria-label="Specifiche Riccio piccolo">
                 <tbody>
-                  <tr>
-                    <th>Diametro</th>
-                    <td>Ø 50 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero, a richiesta</td>
-                  </tr>
+                  <tr><th>Diametro</th><td>Ø 50 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero, a richiesta</td></tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- Medio -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/riccio-60.jpg')">
               <img src="assets/stock.jpg">
@@ -264,19 +200,12 @@
               <h3 class="card__title">Riccio — Medio</h3>
               <table class="table" aria-label="Specifiche Riccio medio">
                 <tbody>
-                  <tr>
-                    <th>Diametro</th>
-                    <td>Ø 60 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero, a richiesta</td>
-                  </tr>
+                  <tr><th>Diametro</th><td>Ø 60 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero, a richiesta</td></tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- Grande -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/riccio-70.jpg')">
               <img src="assets/stock.jpg">
@@ -285,14 +214,8 @@
               <h3 class="card__title">Riccio — Grande</h3>
               <table class="table" aria-label="Specifiche Riccio grande">
                 <tbody>
-                  <tr>
-                    <th>Diametro</th>
-                    <td>Ø 70 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero, a richiesta</td>
-                  </tr>
+                  <tr><th>Diametro</th><td>Ø 70 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero, a richiesta</td></tr>
                 </tbody>
               </table>
             </div>
@@ -300,6 +223,7 @@
         </div>
       </div>
     </section>
+
     <!-- ========== MANICO PER RICCIO ========== -->
     <section class="section section--vcenter" id="manico-riccio" aria-label="Manico per riccio">
       <div class="container">
@@ -307,7 +231,6 @@
           <h2 class="section__title">Manico per riccio</h2>
         </div>
         <div class="grid grid--sheets">
-          <!-- 50/120 -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/manico-50-120.jpg')">
               <img src="assets/stock.jpg">
@@ -316,27 +239,14 @@
               <h3 class="card__title">Manico — Intervallo 50/120 mm</h3>
               <table class="table" aria-label="Specifiche Manico 50-120">
                 <tbody>
-                  <tr>
-                    <th>Lunghezze</th>
-                    <td>50 / 120 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Inserto</th>
-                    <td>Ottone F/M</td>
-                  </tr>
-                  <tr>
-                    <th>Passi</th>
-                    <td>M5 • M6</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero</td>
-                  </tr>
+                  <tr><th>Lunghezze</th><td>50 / 120 mm</td></tr>
+                  <tr><th>Inserto</th><td>Ottone F/M</td></tr>
+                  <tr><th>Passi</th><td>M5 • M6</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero</td></tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- 140/170 -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/manico-140-170.jpg')">
               <img src="assets/stock.jpg">
@@ -345,22 +255,10 @@
               <h3 class="card__title">Manico — Intervallo 140/170 mm</h3>
               <table class="table" aria-label="Specifiche Manico 140-170">
                 <tbody>
-                  <tr>
-                    <th>Lunghezze</th>
-                    <td>140 / 170 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Inserto</th>
-                    <td>Ottone F/M</td>
-                  </tr>
-                  <tr>
-                    <th>Passi</th>
-                    <td>M5 • M6</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero</td>
-                  </tr>
+                  <tr><th>Lunghezze</th><td>140 / 170 mm</td></tr>
+                  <tr><th>Inserto</th><td>Ottone F/M</td></tr>
+                  <tr><th>Passi</th><td>M5 • M6</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero</td></tr>
                 </tbody>
               </table>
             </div>
@@ -368,6 +266,7 @@
         </div>
       </div>
     </section>
+
     <!-- ========== TAZZE ========== -->
     <section class="section section--vcenter" id="tazze" aria-label="Tazze">
       <div class="container">
@@ -375,7 +274,6 @@
           <h2 class="section__title">Tazze</h2>
         </div>
         <div class="grid grid--sheets">
-          <!-- Ø 75 -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/tazza-75.jpg')">
               <img src="assets/stock.jpg">
@@ -384,23 +282,13 @@
               <h3 class="card__title">Tazza — Ø 75 mm</h3>
               <table class="table" aria-label="Specifiche Tazza 75">
                 <tbody>
-                  <tr>
-                    <th>Diametro</th>
-                    <td>Ø 75 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Altezza</th>
-                    <td>120 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero, a richiesta</td>
-                  </tr>
+                  <tr><th>Diametro</th><td>Ø 75 mm</td></tr>
+                  <tr><th>Altezza</th><td>120 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero, a richiesta</td></tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- Ø 85 -->
           <article class="card card--sheet">
             <div class="card__media" style="background-image:url('assets/prodotti/tazza-85.jpg')">
               <img src="assets/stock.jpg">
@@ -409,18 +297,9 @@
               <h3 class="card__title">Tazza — Ø 85 mm</h3>
               <table class="table" aria-label="Specifiche Tazza 85">
                 <tbody>
-                  <tr>
-                    <th>Diametro</th>
-                    <td>Ø 85 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Altezza</th>
-                    <td>120 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero, a richiesta</td>
-                  </tr>
+                  <tr><th>Diametro</th><td>Ø 85 mm</td></tr>
+                  <tr><th>Altezza</th><td>120 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero, a richiesta</td></tr>
                 </tbody>
               </table>
             </div>
@@ -428,6 +307,7 @@
         </div>
       </div>
     </section>
+
     <!-- ========== RULLINO PORTAROTOLI ========== -->
     <section class="section section--vcenter" id="rullino" aria-label="Rullino portarotoli">
       <div class="container">
@@ -443,14 +323,8 @@
               <h3 class="card__title">Rullino portarotoli</h3>
               <table class="table" aria-label="Specifiche Rullino">
                 <tbody>
-                  <tr>
-                    <th>Corsa</th>
-                    <td>95–125 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Colori</th>
-                    <td>Bianco, Nero, a richiesta</td>
-                  </tr>
+                  <tr><th>Corsa</th><td>95–125 mm</td></tr>
+                  <tr><th>Colori</th><td>Bianco, Nero, a richiesta</td></tr>
                 </tbody>
               </table>
             </div>
@@ -458,7 +332,8 @@
         </div>
       </div>
     </section>
-    <!-- ===== STRISCIA “NUMERI CHIAVE” (stile sobrio) ===== -->
+
+    <!-- ===== STRISCIA “NUMERI CHIAVE” ===== -->
     <section class="section" aria-label="Sintesi catalogo">
       <div class="container">
         <div class="cards-wrap">
@@ -477,6 +352,7 @@
         </div>
       </div>
     </section>
+
     <!-- CTA -->
     <section class="section">
       <div class="container">
@@ -490,14 +366,14 @@
         </div>
       </div>
     </section>
+
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
             <h4 class="footer-col__title">TERMOSERAS</h4>
-            <p>Parte del <strong>Gruppo Tre A</strong>
-            </p>
+            <p>Parte del <strong>Gruppo Tre A</strong></p>
             <img width="100px" src="assets/logotrea.svg">
           </div>
           <div class="footer-col">
@@ -516,16 +392,97 @@
           </div>
           <div class="footer-col">
             <h4 class="footer-col__title">LEGALE</h4>
-            <a href="#">Privacy</a>
-            <a href="#">Cookie</a>
-            <a href="#">Condizioni</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="cookie.html">Cookie</a>
+            <a href="#" data-cc="show-preferencesModal">Impostazioni cookie</a>
           </div>
         </div>
         <div class="footer-copy">
-          <small>Copyright © 2025 Termoseras S.r.l. Tutti i diritti riservati.</small>
+          <small>Copyright © 2025 Termoseras S.r.l. <br>Tutti i diritti riservati.</small>
           <small>Made in Italy</small>
         </div>
       </div>
     </footer>
+
+    <!-- Cookie banner + integrazione Consent Mode -->
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+
+      function updateGtagConsent() {
+        const isGranted = (service, cat) =>
+          CookieConsent.acceptedService(service, cat) ? 'granted' : 'denied';
+        gtag('consent','update', {
+          analytics_storage:     isGranted('analytics_storage','analytics'),
+          functionality_storage: isGranted('functionality_storage','functionality'),
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied'
+        });
+      }
+
+      CookieConsent.run({
+        mode: 'opt-in',
+        cookie: { name: 'cc_cookie' },
+        guiOptions: {
+          consentModal: { layout: 'cloud inline', position: 'bottom center', equalWeightButtons: true },
+          preferencesModal: { layout: 'box' }
+        },
+        categories: {
+          necessary:   { enabled: true, readOnly: true },
+          analytics:   {
+            autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] },
+            services: {
+              analytics_storage: { label: 'Abilita cookie di analisi (Google Analytics 4)' }
+            }
+          },
+          functionality:{
+            services: {
+              functionality_storage: { label: 'Abilita contenuti esterni (es. mappe, moduli)' }
+            }
+          }
+        },
+        language: {
+          default: 'it',
+          translations: {
+            it: {
+              consentModal: {
+                title: 'Usiamo i cookie',
+                description: 'Utilizziamo cookie tecnici e, previo consenso, cookie analitici e contenuti esterni. Puoi accettare tutti o gestire le preferenze.',
+                acceptAllBtn: 'Accetta tutti',
+                acceptNecessaryBtn: 'Rifiuta non necessari',
+                showPreferencesBtn: 'Impostazioni cookie',
+                footer: `<a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a>`
+              },
+              preferencesModal: {
+                title: 'Gestisci preferenze cookie',
+                acceptAllBtn: 'Accetta tutti',
+                acceptNecessaryBtn: 'Rifiuta non necessari',
+                savePreferencesBtn: 'Salva preferenze',
+                sections: [
+                  { title: 'Necessari', description: 'Sempre attivi per il funzionamento del sito.', linkedCategory: 'necessary' },
+                  { title: 'Analitici', description: 'Statistiche anonime per migliorare il sito.', linkedCategory: 'analytics' },
+                  { title: 'Funzionalità esterne', description: 'Contenuti di terze parti (es. mappe, moduli).', linkedCategory: 'functionality' }
+                ]
+              }
+            }
+          }
+        },
+        onFirstConsent: updateGtagConsent,
+        onConsent:      updateGtagConsent,
+        onChange:       updateGtagConsent
+      });
+    </script>
+
+    <!-- Google Analytics BLOCCATO finché non accetti "Analitici" -->
+    <script type="text/plain" data-category="analytics"
+            data-service="Google Analytics"
+            data-src="https://www.googletagmanager.com/gtag/js?id=G-VLEC2STHFB"></script>
+
+    <script type="text/plain" data-category="analytics" data-service="Google Analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-VLEC2STHFB', { anonymize_ip: true });
+    </script>
   </body>
 </html>

@@ -1,49 +1,52 @@
 <!DOCTYPE html>
+<html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Termoseras — Chi siamo</title>
-  <meta name="description" content="Scopini di ricambio e teste in ottone per l’industria del bagno. Qualità assoluta, produzione interna, incastri e filetti.">
+  <meta name="description" content="Produzione di accessori per il bagno">
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Favicons con gestione tema -->
   <link rel="icon" type="image/png" href="assets/darklogo.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="assets/lightlogo.png" media="(prefers-color-scheme: dark)">
 
-  <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLEC2STHFB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Cookie banner (CSS) -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
 
-      gtag('config', 'G-VLEC2STHFB');
-    </script>
+  <!-- Google Consent Mode: default = denied -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent','default',{
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      analytics_storage:'denied',
+      functionality_storage:'denied',
+      personalization_storage:'denied',
+      security_storage:'denied'
+    });
+  </script>
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container site-nav">
-      <!-- Logo sinistro / mobile -->
       <a class="brand" href="index.html">
-        <!-- Desktop: solo scritta -->
         <img src="assets/soloscritta.svg" class="logo-desktop-left">
-        <!-- Mobile: logo completo -->
         <img src="assets/logo.svg" class="logo-mobile-left">
       </a>
-      <!-- Logo centrale solo desktop -->
       <div class="logo-center">
         <img src="assets/logo.svg">
       </div>
-      <!-- Burger menu (mobile) -->
       <a class="burger" href="menu.html" aria-label="Apri menu">
         <span class="burger__bar"></span>
         <span class="burger__bar"></span>
         <span class="burger__bar"></span>
       </a>
-      <!-- Menu desktop -->
       <nav class="nav-links" aria-label="Navigazione principale">
         <a href="index.html">Home</a>
         <a href="prodotti.html">Prodotti</a>
@@ -52,25 +55,29 @@
       </nav>
     </div>
   </header>
+
   <!-- HERO -->
   <section class="hero" style="--hero:url('assets/hero-azienda.jpg')" aria-label="Azienda Termoseras">
     <div class="container hero__inner">
       <h1 class="hero__title">La nostra azienda</h1>
-      <p class="hero__text"> 60 anni di esperienza nel settore </p>
+      <p class="hero__text">60 anni di esperienza nel settore</p>
       <a class="btn" href="contatti.html#contattaci">Parla con noi</a>
     </div>
   </section>
+
   <!-- IDENTITÀ -->
   <section class="section" aria-label="Identità">
     <div class="container">
       <div class="section__head">
         <h2 class="section__title">Chi è Termoseras</h2>
-      </div> Da oltre 60 anni produciamo accessori per il bagno in plastica con un ciclo completo che parte dallo stampaggio e arriva fino all’inscatolamento. La nostra gamma comprende scopini, noccioli, ricci in PVC, manici, tazze e rullini portarotoli, realizzati principalmente in polipropilene (PP) e con setole fissate tramite una lega metallica anti-corrosione e ruggine. <br>
-      <br>Dal 2023 facciamo parte del Gruppo Tre A, realtà con oltre 30 anni di esperienza nello stampaggio plastico. L’appartenenza al gruppo ci garantisce solidità, competenze condivise e un continuo investimento in innovazione, rafforzando la nostra capacità di offrire prodotti affidabili, resistenti e competitivi. <br>
-      <br>Lavoriamo esclusivamente in ottica B2B, con lotti minimi da 100 pezzi e la possibilità di fornire campioni per consentire ai nostri clienti di testare qualità e compatibilità. <br>
-      <br>La nostra missione è offrire accessori bagno affidabili, resistenti e personalizzabili, rispondendo alle esigenze di brand, distributori e aziende del settore.
+      </div>
+      Da oltre 60 anni produciamo accessori per il bagno in plastica con un ciclo completo che parte dallo stampaggio e arriva fino all’inscatolamento. La nostra gamma comprende scopini, noccioli, ricci in PVC, manici, tazze e rullini portarotoli, realizzati principalmente in polipropilene (PP) e con setole fissate tramite una lega metallica anti-corrosione e ruggine. <br><br>
+      Dal 2023 facciamo parte del Gruppo Tre A, realtà con oltre 30 anni di esperienza nello stampaggio plastico. L’appartenenza al gruppo ci garantisce solidità, competenze condivise e un continuo investimento in innovazione, rafforzando la nostra capacità di offrire prodotti affidabili, resistenti e competitivi. <br><br>
+      Lavoriamo esclusivamente in ottica B2B, con lotti minimi da 100 pezzi e la possibilità di fornire campioni per consentire ai nostri clienti di testare qualità e compatibilità. <br><br>
+      La nostra missione è offrire accessori bagno affidabili, resistenti e personalizzabili, rispondendo alle esigenze di brand, distributori e aziende del settore.
     </div>
   </section>
+
   <!-- PROCESSO PRODUTTIVO -->
   <section class="section" aria-label="Processo produttivo">
     <div class="container">
@@ -83,8 +90,8 @@
             <img src="assets/stock.jpg">
           </div>
           <div class="card__body">
-            <h3 class="card__title" style="text-align: center;">01 • Stampaggio</h3>
-            <p class="card__text" style="text-align: center;">Da materia prima a prodotto finito.</p>
+            <h3 class="card__title" style="text-align:center;">01 • Stampaggio</h3>
+            <p class="card__text" style="text-align:center;">Da materia prima a prodotto finito.</p>
           </div>
         </article>
         <article class="card">
@@ -94,8 +101,8 @@
             </video>
           </div>
           <div class="card__body">
-            <h3 class="card__title" style="text-align: center;">02 • Setolamento</h3>
-            <p class="card__text" style="text-align: center;">Inserimento e fissaggio delle setole con macchinari industriali.</p>
+            <h3 class="card__title" style="text-align:center;">02 • Setolamento</h3>
+            <p class="card__text" style="text-align:center;">Inserimento e fissaggio delle setole con macchinari industriali.</p>
           </div>
         </article>
         <article class="card">
@@ -105,8 +112,8 @@
             </video>
           </div>
           <div class="card__body">
-            <h3 class="card__title" style="text-align: center;">03 • Rasatura</h3>
-            <p class="card__text" style="text-align: center;">Rifinitura delle setole per garantire uniformità ed estetica.</p>
+            <h3 class="card__title" style="text-align:center;">03 • Rasatura</h3>
+            <p class="card__text" style="text-align:center;">Rifinitura delle setole per garantire uniformità ed estetica.</p>
           </div>
         </article>
         <article class="card">
@@ -114,8 +121,8 @@
             <img src="assets/controlloqualità.jpg">
           </div>
           <div class="card__body">
-            <h3 class="card__title" style="text-align: center;">04 • Controllo qualità</h3>
-            <p class="card__text" style="text-align: center;">Verifica della resistenza e della conformità del prodotto.</p>
+            <h3 class="card__title" style="text-align:center;">04 • Controllo qualità</h3>
+            <p class="card__text" style="text-align:center;">Verifica della resistenza e della conformità del prodotto.</p>
           </div>
         </article>
         <article class="card">
@@ -123,13 +130,14 @@
             <img src="assets/imballaggio.jpg">
           </div>
           <div class="card__body">
-            <h3 class="card__title" style="text-align: center;">05 • Imballaggio</h3>
-            <p class="card__text" style="text-align: center;">Inscatolamento pronto per la distribuzione.</p>
+            <h3 class="card__title" style="text-align:center;">05 • Imballaggio</h3>
+            <p class="card__text" style="text-align:center;">Inscatolamento pronto per la distribuzione.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
+
   <!-- CTA -->
   <section class="section">
     <div class="container">
@@ -137,20 +145,20 @@
         <div>
           <div class="eyebrow">Ordini B2B</div>
           <h3 style="margin:6px 0 8px">MOQ 100 pezzi • Campioni disponibili</h3>
-          <p style="margin:0;color:var(--muted)"> Indica varianti, diametri e filetti: prepariamo campioni su richiesta per la valutazione del prodotto. </p>
+          <p style="margin:0;color:var(--muted)">Indica varianti, diametri e filetti: prepariamo campioni su richiesta per la valutazione del prodotto.</p>
         </div>
         <a class="btn" href="contatti.html#contattaci">Richiedi preventivo</a>
       </div>
     </div>
   </section>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
           <h4 class="footer-col__title">TERMOSERAS</h4>
-          <p>Parte del <strong>Gruppo Tre A</strong>
-          </p>
+          <p>Parte del <strong>Gruppo Tre A</strong></p>
           <img width="100px" src="assets/logotrea.svg">
         </div>
         <div class="footer-col">
@@ -169,9 +177,9 @@
         </div>
         <div class="footer-col">
           <h4 class="footer-col__title">LEGALE</h4>
-          <a href="#">Privacy</a>
-          <a href="#">Cookie</a>
-          <a href="#">Condizioni</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+          <a href="#" data-cc="show-preferencesModal">Impostazioni cookie</a>
         </div>
       </div>
       <div class="footer-copy">
@@ -180,5 +188,107 @@
       </div>
     </div>
   </footer>
+
+  <!-- Cookie banner + integrazione Consent Mode -->
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+
+    function updateGtagConsent() {
+      const isGranted = (service, cat) =>
+        CookieConsent.acceptedService(service, cat) ? 'granted' : 'denied';
+      gtag('consent','update', {
+        analytics_storage:     isGranted('analytics_storage','analytics'),
+        functionality_storage: isGranted('functionality_storage','functionality'),
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    }
+
+    CookieConsent.run({
+      mode: 'opt-in',
+      cookie: { name: 'cc_cookie' },
+      guiOptions: {
+        consentModal:     { layout: 'cloud inline', position: 'bottom center', equalWeightButtons: true },
+        preferencesModal: { layout: 'box' }
+      },
+      categories: {
+        necessary:   { enabled: true, readOnly: true },
+        analytics:   {
+          autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] },
+          services: {
+            analytics_storage: { label: 'Abilita cookie di analisi (Google Analytics 4)' }
+          }
+        },
+        functionality:{
+          services: {
+            functionality_storage: { label: 'Abilita contenuti esterni (es. mappe, moduli)' }
+          }
+        }
+      },
+      language: {
+        default: 'it',
+        translations: {
+          it: {
+            consentModal: {
+              title: 'Usiamo i cookie',
+              description: 'Utilizziamo cookie tecnici e, previo consenso, cookie analitici e contenuti esterni. Puoi accettare tutti o gestire le preferenze.',
+              acceptAllBtn: 'Accetta tutti',
+              acceptNecessaryBtn: 'Rifiuta non necessari',
+              showPreferencesBtn: 'Impostazioni cookie',
+              footer: `<a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a>`
+            },
+            preferencesModal: {
+              title: 'Gestisci preferenze cookie',
+              acceptAllBtn: 'Accetta tutti',
+              acceptNecessaryBtn: 'Rifiuta non necessari',
+              savePreferencesBtn: 'Salva preferenze',
+              sections: [
+                { title: 'Necessari', description: 'Sempre attivi per il funzionamento del sito.', linkedCategory: 'necessary' },
+                { title: 'Analitici', description: 'Statistiche anonime per migliorare il sito.', linkedCategory: 'analytics' },
+                { title: 'Funzionalità esterne', description: 'Contenuti di terze parti (es. mappe, moduli).', linkedCategory: 'functionality' }
+              ]
+            }
+          }
+        }
+      },
+      onFirstConsent: updateGtagConsent,
+      onConsent:      updateGtagConsent,
+      onChange:       updateGtagConsent
+    });
+  </script>
+
+  <!-- Ricarica una sola volta se si passa da negato→concesso (coerenza sito) -->
+  <script>
+    (function(){
+      let prevFn = !!(window.CookieConsent && CookieConsent.acceptedService('functionality_storage','functionality'));
+      let prevAn = !!(window.CookieConsent && CookieConsent.acceptedService('analytics_storage','analytics'));
+      function maybeReload() {
+        if (!window.CookieConsent || !CookieConsent.acceptedService) return;
+        const nowFn = CookieConsent.acceptedService('functionality_storage','functionality');
+        const nowAn = CookieConsent.acceptedService('analytics_storage','analytics');
+        const gained = (nowFn && !prevFn) || (nowAn && !prevAn);
+        prevFn = !!nowFn; prevAn = !!nowAn;
+        if (gained && !sessionStorage.getItem('cc_reload_once')) {
+          sessionStorage.setItem('cc_reload_once','1');
+          location.reload();
+        }
+      }
+      document.addEventListener('cc:onConsent', maybeReload);
+      document.addEventListener('cc:onChange',  maybeReload);
+    })();
+  </script>
+
+  <!-- Google Analytics BLOCCATO finché non accetti "Analitici" -->
+  <script type="text/plain" data-category="analytics"
+          data-service="Google Analytics"
+          data-src="https://www.googletagmanager.com/gtag/js?id=G-VLEC2STHFB"></script>
+
+  <script type="text/plain" data-category="analytics" data-service="Google Analytics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VLEC2STHFB', { anonymize_ip: true });
+  </script>
 </body>
 </html>

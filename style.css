@@ -1128,3 +1128,42 @@ fieldset {
 .menu-head .menu-head__brand span {
   display: none;
 }
+/* --- Cookie Policy: tabella pulita e responsive --- */
+.table-scroll{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.policy-table{
+  width: 100%;
+  border-collapse: collapse; /* linee nette tra le righe */
+  table-layout: auto;
+}
+
+.policy-table th,
+.policy-table td{
+  padding: 10px 14px;        /* spaziatura uniforme */
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.policy-table thead th{
+  font-weight: 600;
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.12));
+}
+
+.policy-table tbody tr + tr td{
+  border-top: 1px solid var(--border, rgba(255,255,255,.08));
+}
+
+/* larghezze minime per le prime 3 colonne, la descrizione prende lo spazio rimanente */
+.policy-table td:nth-child(1){ white-space: nowrap; width: 8rem; }
+.policy-table td:nth-child(2){ white-space: nowrap; width: 9rem; }
+.policy-table td:nth-child(3){ white-space: nowrap; width: 9rem; }
+.policy-table td:nth-child(4){ width: auto; }
+
+@media (max-width: 640px){
+  .policy-table th,
+  .policy-table td{ padding: 8px 10px; }
+}

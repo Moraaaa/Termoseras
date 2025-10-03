@@ -9,42 +9,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Favicons con gestione tema -->
     <link rel="icon" type="image/png" href="assets/darklogo.png" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" href="assets/lightlogo.png" media="(prefers-color-scheme: dark)">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLEC2STHFB"></script>
+    <!-- Cookie banner (CSS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+    <!-- IframeManager (CSS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/iframemanager@1.3.0/dist/iframemanager.css">
+
+    <!-- Google Consent Mode: default = denied -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-VLEC2STHFB');
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent','default',{
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied',
+        analytics_storage:'denied',
+        functionality_storage:'denied',
+        personalization_storage:'denied',
+        security_storage:'denied'
+      });
     </script>
   </head>
   <body>
     <!-- HEADER -->
     <header class="site-header" role="banner">
       <div class="container site-nav">
-        <!-- Logo sinistro / mobile -->
         <a class="brand" href="index.html">
-          <!-- Desktop: solo scritta -->
           <img src="assets/soloscritta.svg" class="logo-desktop-left">
-          <!-- Mobile: logo completo -->
           <img src="assets/logo.svg" class="logo-mobile-left">
         </a>
-        <!-- Logo centrale solo desktop -->
         <div class="logo-center">
           <img src="assets/logo.svg">
         </div>
-        <!-- Burger menu (mobile) -->
         <a class="burger" href="menu.html" aria-label="Apri menu">
           <span class="burger__bar"></span>
           <span class="burger__bar"></span>
           <span class="burger__bar"></span>
         </a>
-        <!-- Menu desktop -->
         <nav class="nav-links" aria-label="Navigazione principale">
           <a href="index.html">Home</a>
           <a href="prodotti.html">Prodotti</a>
@@ -53,6 +56,7 @@
         </nav>
       </div>
     </header>
+
     <!-- HERO -->
     <section class="hero" style="--hero:url('assets/hero-contatti.jpg')" aria-label="Contatti">
       <div class="container hero__inner">
@@ -61,6 +65,7 @@
         <a class="btn" href="#contattaci">Vai al form</a>
       </div>
     </section>
+
     <!-- FORM + CONTATTI DIRETTI -->
     <section class="section" id="contattaci" aria-label="Contattaci">
       <div class="container">
@@ -72,14 +77,12 @@
           <div class="card card--full">
             <div class="card__body">
               <form class="form form--compact" id="contact-form" method="post" action="#">
-                <!-- Dettagli aziendali -->
                 <div class="field-wrap">
                   <input class="field" type="text" name="azienda" placeholder="Azienda *" required aria-label="Azienda">
                 </div>
                 <div class="field-wrap">
                   <input class="field" type="text" name="nominativo" placeholder="Nome e cognome *" required aria-label="Nome e cognome">
                 </div>
-                <!-- Contatti -->
                 <div class="field-wrap">
                   <input class="field" id="email" type="email" name="email" placeholder="Email *" required aria-label="Email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
                   <div class="error-text" id="email-error"></div>
@@ -88,71 +91,38 @@
                   <input class="field" id="telefono" type="tel" name="telefono" placeholder="Telefono (es. +39 02 1234567)" aria-label="Telefono" inputmode="tel" pattern="[0-9()+.\s-]{7,20}">
                   <div class="error-text" id="tel-error"></div>
                 </div>
-                <!-- Tipo di richiesta -->
                 <fieldset class="full" style="margin-top:6px">
                   <div class="legend">Tipo di richiesta</div>
                   <div class="radios">
-                    <label class="radio">
-                      <input type="radio" name="tipo_richiesta" value="Preventivo" checked>
-                      <span>Preventivo</span>
-                    </label>
-                    <label class="radio">
-                      <input type="radio" name="tipo_richiesta" value="Campioni">
-                      <span>Campioni</span>
-                    </label>
-                    <label class="radio">
-                      <input type="radio" name="tipo_richiesta" value="Informazioni">
-                      <span>Informazioni</span>
-                    </label>
+                    <label class="radio"><input type="radio" name="tipo_richiesta" value="Preventivo" checked><span>Preventivo</span></label>
+                    <label class="radio"><input type="radio" name="tipo_richiesta" value="Campioni"><span>Campioni</span></label>
+                    <label class="radio"><input type="radio" name="tipo_richiesta" value="Informazioni"><span>Informazioni</span></label>
                   </div>
                 </fieldset>
-                <!-- Articoli (multipla, facoltativa) -->
                 <fieldset class="full" style="margin-top:6px">
                   <div class="legend">Articoli di interesse (multipla, facoltativa)</div>
                   <div class="checks-grid" id="articoli-list">
-                    <label class="check">
-                      <input type="checkbox" name="articoli[]" value="Nocciolo" data-key="nocciolo">
-                      <span>Nocciolo</span>
-                    </label>
-                    <label class="check">
-                      <input type="checkbox" name="articoli[]" value="Scopino" data-key="scopino">
-                      <span>Scopino</span>
-                    </label>
-                    <label class="check">
-                      <input type="checkbox" name="articoli[]" value="Riccio in PVC" data-key="riccio">
-                      <span>Riccio in PVC</span>
-                    </label>
-                    <label class="check">
-                      <input type="checkbox" name="articoli[]" value="Manico per riccio" data-key="manico">
-                      <span>Manico per riccio</span>
-                    </label>
-                    <label class="check">
-                      <input type="checkbox" name="articoli[]" value="Tazze" data-key="tazze">
-                      <span>Tazze</span>
-                    </label>
-                    <label class="check">
-                      <input type="checkbox" name="articoli[]" value="Rullino portarotoli" data-key="rullino">
-                      <span>Rullino portarotoli</span>
-                    </label>
+                    <label class="check"><input type="checkbox" name="articoli[]" value="Nocciolo" data-key="nocciolo"><span>Nocciolo</span></label>
+                    <label class="check"><input type="checkbox" name="articoli[]" value="Scopino" data-key="scopino"><span>Scopino</span></label>
+                    <label class="check"><input type="checkbox" name="articoli[]" value="Riccio in PVC" data-key="riccio"><span>Riccio in PVC</span></label>
+                    <label class="check"><input type="checkbox" name="articoli[]" value="Manico per riccio" data-key="manico"><span>Manico per riccio</span></label>
+                    <label class="check"><input type="checkbox" name="articoli[]" value="Tazze" data-key="tazze"><span>Tazze</span></label>
+                    <label class="check"><input type="checkbox" name="articoli[]" value="Rullino portarotoli" data-key="rullino"><span>Rullino portarotoli</span></label>
                   </div>
                 </fieldset>
-                <!-- Versioni dinamiche -->
                 <fieldset id="versions-fieldset" class="full" hidden>
                   <div class="legend">Versioni (facoltative, dipendono dagli articoli selezionati)</div>
                   <div id="versions-container"></div>
                 </fieldset>
-                <!-- Messaggio -->
                 <div class="field-wrap full">
                   <textarea class="field textarea" name="messaggio" rows="6" placeholder="Messaggio (incastri/filetti, rasatura Ø, colori, note) *" required aria-label="Messaggio"></textarea>
                 </div>
-                <!-- Privacy -->
                 <div class="full" style="margin-top:-4px">
                   <label style="display:flex;align-items:flex-start;gap:10px;line-height:1.4; color:var(--muted)">
                     <input type="checkbox" id="privacy" name="privacy" required aria-label="Accetto la privacy" style="margin-top:4px">
-                    <span>Ho letto e accetto la <a href="#" style="text-decoration:underline">Privacy Policy</a>. </span>
+                    <span>Ho letto e accetto la <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>.</span>
                   </label>
                 </div>
-                <!-- Submit -->
                 <div class="full" style="display:flex; flex-direction:column; align-items:flex-end; gap:6px; margin-top:6px">
                   <button class="btn" type="submit">Invia richiesta</button>
                   <p id="form-status" role="status" aria-live="polite" style="margin:0; color:var(--muted);"></p>
@@ -160,21 +130,15 @@
               </form>
             </div>
           </div>
+
           <!-- CARD: CONTATTI DIRETTI -->
           <aside class="card contact-card">
             <div class="card__body">
               <h3 class="card__title" style="margin-bottom:6px">Contatti diretti</h3>
               <p class="card__text" style="margin-bottom:8px">Preferisci scrivere o chiamare?</p>
               <div class="contact-links">
-                <!-- 🔁 Sostituisci con i tuoi dati reali -->
-                <a href="mailto:info@termoseras.it">
-                  <span>✉︎</span>
-                  <span>a.morandini@treasrl.it</span>
-                </a>
-                <a href="tel:+39021234567">
-                  <span>☎︎</span>
-                  <span>+39 030 708 0274</span>
-                </a>
+                <a href="mailto:info@termoseras.it"><span>✉︎</span><span>a.morandini@treasrl.it</span></a>
+                <a href="tel:+39021234567"><span>☎︎</span><span>+39 030 708 0274</span></a>
               </div>
               <p class="card__text" style="margin-top:10px;color:var(--muted)">Lun–Ven 8:00–12:00 / 13:30–17:30 <br> Sab–Dom chiuso </p>
             </div>
@@ -182,6 +146,7 @@
         </div>
       </div>
     </section>
+
     <!-- MAPPA / DOVE TROVARCI -->
     <section class="section" aria-label="Dove trovarci">
       <div class="container">
@@ -190,27 +155,31 @@
         </div>
         <div class="card" style="overflow:hidden">
           <div class="card__body" style="padding:0">
-            <!-- 🔁 Sostituisci l'embed con il tuo indirizzo (Google Maps > Condividi > Incorpora mappa) -->
-            <iframe title="Mappa — Termoseras" aria-label="Mappa con la posizione di Termoseras" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.1568028905995!2d9.951244438566913!3d45.503765272629686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47816c8165ee2285%3A0x2d5e08bbb129addc!2sVia%20del%20Lavoro%2C%2040%2C%2025030%20Castelcovati%20BS!5e0!3m2!1sit!2sit!4v1759220929383!5m2!1sit!2sit" width="100%" height="420" frameborder="0" style="border:0; display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div
+              data-service="googlemaps"
+              data-id="!1m18!1m12!1m3!1d1398.1568028905995!2d9.951244438566913!3d45.503765272629686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47816c8165ee2285%3A0x2d5e08bbb129addc!2sVia%20del%20Lavoro%2C%2040%2C%2025030%20Castelcovati%20BS!5e0!3m2!1sit!2sit!4v1759220929383!5m2!1sit!2sit"
+              data-title="Mappa bloccata"
+              data-widget
+              style="display:block; width:100%; height:420px;"></div>
           </div>
           <div class="card__body" style="display:flex;gap:18px;flex-wrap:wrap">
-            <!-- 🔁 Sostituisci con i tuoi dati reali -->
             <div style="min-width:240px">
               <h3 class="card__title" style="margin-bottom:6px">Indirizzo</h3>
-              <p class="card__text" style="margin:0"> Via del Lavoro, 40 <br> 25030 Castelcovati (BS) — Italia </p>
+              <p class="card__text" style="margin:0">Via del Lavoro, 40 <br> 25030 Castelcovati (BS) — Italia</p>
             </div>
             <div style="min-width:240px">
               <h3 class="card__title" style="margin-bottom:6px">Orari</h3>
-              <p class="card__text" style="margin:0"> Lun–Ven 8:00–12:00 / 13:30–17:30 <br> Sab–Dom chiuso </p>
+              <p class="card__text" style="margin:0">Lun–Ven 8:00–12:00 / 13:30–17:30 <br> Sab–Dom chiuso</p>
             </div>
             <div style="min-width:240px">
               <h3 class="card__title" style="margin-bottom:6px">Accesso</h3>
-              <p class="card__text" style="margin:0"> Ingresso carico/scarico mezzi <br> Parcheggio clienti esterno </p>
+              <p class="card__text" style="margin:0">Ingresso carico/scarico mezzi <br> Parcheggio clienti esterno</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- CTA -->
     <section class="section">
       <div class="container">
@@ -218,20 +187,20 @@
           <div>
             <div class="eyebrow">Ordini B2B</div>
             <h3 style="margin:6px 0 8px">MOQ 100 pezzi • Campioni disponibili</h3>
-            <p style="margin:0;color:var(--muted)"> Indica varianti, diametri e filetti: prepariamo campioni su richiesta per la valutazione del prodotto. </p>
+            <p style="margin:0;color:var(--muted)">Indica varianti, diametri e filetti: prepariamo campioni su richiesta per la valutazione del prodotto.</p>
           </div>
           <a class="btn" href="contatti.html#contattaci">Richiedi preventivo</a>
         </div>
       </div>
     </section>
+
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
             <h4 class="footer-col__title">TERMOSERAS</h4>
-            <p>Parte del <strong>Gruppo Tre A</strong>
-            </p>
+            <p>Parte del <strong>Gruppo Tre A</strong></p>
             <img width="100px" src="assets/logotrea.svg">
           </div>
           <div class="footer-col">
@@ -250,21 +219,174 @@
           </div>
           <div class="footer-col">
             <h4 class="footer-col__title">LEGALE</h4>
-            <a href="#">Privacy</a>
-            <a href="#">Cookie</a>
-            <a href="#">Condizioni</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="cookie.html">Cookie</a>
+            <a href="#" data-cc="show-preferencesModal">Impostazioni cookie</a>
           </div>
         </div>
         <div class="footer-copy">
-          <small>Copyright © 2025 Termoseras S.r.l. Tutti i diritti riservati.</small>
+          <small>Copyright © 2025 Termoseras S.r.l. <br>Tutti i diritti riservati.</small>
           <small>Made in Italy</small>
         </div>
       </div>
     </footer>
+
+    <!-- Cookie banner + Consent Mode -->
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+
+      function updateGtagConsent() {
+        const isGranted = (service, cat) =>
+          CookieConsent.acceptedService(service, cat) ? 'granted' : 'denied';
+        gtag('consent','update', {
+          analytics_storage:     isGranted('analytics_storage','analytics'),
+          functionality_storage: isGranted('functionality_storage','functionality'),
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied'
+        });
+      }
+
+      CookieConsent.run({
+        mode: 'opt-in',
+        cookie: { name: 'cc_cookie' },
+        guiOptions: {
+          consentModal:     { layout: 'cloud inline', position: 'bottom center', equalWeightButtons: true },
+          preferencesModal: { layout: 'box' }
+        },
+        categories: {
+          necessary:   { enabled: true, readOnly: true },
+          analytics:   {
+            autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] },
+            services: {
+              analytics_storage: { label: 'Abilita cookie di analisi (Google Analytics 4)' }
+            }
+          },
+        functionality: {
+            services: {
+              functionality_storage: { label: 'Abilita contenuti esterni (es. moduli, mappe)' }
+            }
+          }
+        },
+        language: {
+          default: 'it',
+          translations: {
+            it: {
+              consentModal: {
+                title: 'Usiamo i cookie',
+                description: 'Utilizziamo cookie tecnici e, previo consenso, cookie analitici per migliorare il sito. Puoi accettare tutti o gestire le preferenze.',
+                acceptAllBtn: 'Accetta tutti',
+                acceptNecessaryBtn: 'Rifiuta non necessari',
+                showPreferencesBtn: 'Impostazioni cookie',
+                footer: `<a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a>`
+              },
+              preferencesModal: {
+                title: 'Gestisci preferenze cookie',
+                acceptAllBtn: 'Accetta tutti',
+                acceptNecessaryBtn: 'Rifiuta non necessari',
+                savePreferencesBtn: 'Salva preferenze',
+                sections: [
+                  { title: 'Necessari', description: 'Sempre attivi per il funzionamento del sito.', linkedCategory: 'necessary' },
+                  { title: 'Analitici', description: 'Statistiche anonime per migliorare il sito.', linkedCategory: 'analytics' },
+                  { title: 'Funzionalità esterne', description: 'Abilita contenuti di terze parti (es. moduli, mappe).', linkedCategory: 'functionality' }
+                ]
+              }
+            }
+          }
+        },
+        onFirstConsent: () => { updateGtagConsent(); window.__syncIM?.(); },
+        onConsent:      () => { updateGtagConsent(); window.__syncIM?.(); },
+        onChange:       () => { updateGtagConsent(); window.__syncIM?.(); }
+      });
+    </script>
+
+    <!-- Ricarica una sola volta se si passa da negato→concesso (Analitici o Funzionalità) -->
+    <script>
+      (function(){
+        let prevFn = !!(window.CookieConsent && CookieConsent.acceptedService('functionality_storage','functionality'));
+        let prevAn = !!(window.CookieConsent && CookieConsent.acceptedService('analytics_storage','analytics'));
+        function maybeReload() {
+          if (!window.CookieConsent || !CookieConsent.acceptedService) return;
+          const nowFn = CookieConsent.acceptedService('functionality_storage','functionality');
+          const nowAn = CookieConsent.acceptedService('analytics_storage','analytics');
+          const gained = (nowFn && !prevFn) || (nowAn && !prevAn);
+          prevFn = !!nowFn; prevAn = !!nowAn;
+          if (gained && !sessionStorage.getItem('cc_reload_once')) {
+            sessionStorage.setItem('cc_reload_once','1');
+            location.reload();
+          }
+        }
+        document.addEventListener('cc:onConsent', maybeReload);
+        document.addEventListener('cc:onChange',  maybeReload);
+      })();
+    </script>
+
+    <!-- IframeManager -->
+    <script defer src="https://cdn.jsdelivr.net/gh/orestbida/iframemanager@1.3.0/dist/iframemanager.js"></script>
+    <script>
+      (function initIM(){
+        if (typeof iframemanager !== 'function') {
+          return setTimeout(initIM, 30);
+        }
+        const im = iframemanager();
+        im.run({
+          currLang: 'it',
+          services: {
+            googlemaps: {
+              embedUrl: 'https://www.google.com/maps/embed?pb={data-id}',
+              iframe: {
+                loading: 'lazy',
+                referrerpolicy: 'no-referrer-when-downgrade',
+                frameborder: '0',
+                allowfullscreen: 'true',
+                style: 'border:0; display:block; width:100%; height:100%;'
+              },
+              languages: {
+                it: {
+                  noticeTitle: '{data-title}',
+                  loadBtn: '',
+                  loadAllBtn: 'ABILITA COOKIE'
+                }
+              }
+            }
+          },
+          onChange: ({ changedServices, eventSource }) => {
+            if (eventSource?.type === 'click' && changedServices?.includes('googlemaps')) {
+              if (window.CookieConsent?.getUserPreferences && CookieConsent.acceptService) {
+                const current = new Set(CookieConsent.getUserPreferences()?.acceptedServices?.functionality || []);
+                current.add('functionality_storage');
+                CookieConsent.acceptService([...current], 'functionality');
+              }
+              try { syncFromCC(); } catch(e){}
+            }
+          }
+        });
+
+        function syncFromCC() {
+          if (!window.CookieConsent?.acceptedService) return;
+          const granted = CookieConsent.acceptedService('functionality_storage','functionality');
+          if (granted) im.acceptService('googlemaps');
+          else im.rejectService('googlemaps');
+        }
+        window.__syncIM = syncFromCC;
+        try { syncFromCC(); } catch(e){}
+      })();
+    </script>
+
+    <!-- Google Analytics (caricato solo se accetti "Analitici") -->
+    <script type="text/plain" data-category="analytics"
+            data-service="Google Analytics"
+            data-src="https://www.googletagmanager.com/gtag/js?id=G-VLEC2STHFB"></script>
+    <script type="text/plain" data-category="analytics" data-service="Google Analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-VLEC2STHFB', { anonymize_ip: true });
+    </script>
+
     <!-- JS: validazione + versioni dinamiche -->
     <script>
       (function() {
-        /* ===== Validazione email/telefono (no errore finché non esci dal campo) ===== */
         const form = document.getElementById('contact-form');
         const email = document.getElementById('email');
         const tel = document.getElementById('telefono');
@@ -276,7 +398,7 @@
         let telTouched = false;
 
         function validateEmail(force = false) {
-          if (!emailTouched && !force) return true; // non validare mentre scrive
+          if (!emailTouched && !force) return true;
           email.setCustomValidity('');
           email.classList.remove('error');
           emailWrap.classList.remove('has-error');
@@ -285,7 +407,7 @@
           if (!ok) {
             email.setCustomValidity("Inserisci un'email valida (es. nome@azienda.it).");
             email.classList.add('error');
-            emailWrap.classList.add('has-error'); // crea spazio solo ora
+            emailWrap.classList.add('has-error');
             emailErr.textContent = "Email non valida (es. nome@azienda.it).";
           }
           return ok;
@@ -297,7 +419,7 @@
           tel.classList.remove('error');
           telWrap.classList.remove('has-error');
           telErr.textContent = '';
-          if (!tel.value) return true; // opzionale
+          if (!tel.value) return true;
           const digits = tel.value.replace(/\D/g, '');
           const okLen = digits.length >= 7 && digits.length <= 15;
           const okChars = /^[0-9()+\-\.\s]+$/.test(tel.value);
@@ -310,86 +432,67 @@
           }
           return ok;
         }
-        email.addEventListener('blur', () => {
-          emailTouched = true;
-          validateEmail(true);
-        });
-        tel.addEventListener('blur', () => {
-          telTouched = true;
-          validateTel(true);
-        });
-        email.addEventListener('input', () => {
-          if (emailTouched) validateEmail(true);
-        });
-        tel.addEventListener('input', () => {
-          if (telTouched) validateTel(true);
-        });
-        // URL della tua App Web Apps Script
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQJwJCXDVr7Q4qzRck92JnujM9uEkfog8F97rJMBEEP0L8BdU-tlaTfM2nFTFReawP/exec"; // <--- incolla qui il tuo URL
+
+        email.addEventListener('blur', () => { emailTouched = true; validateEmail(true); });
+        tel.addEventListener('blur', () => { telTouched = true; validateTel(true); });
+        email.addEventListener('input', () => { if (emailTouched) validateEmail(true); });
+        tel.addEventListener('input', () => { if (telTouched) validateTel(true); });
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQJwJCXDVr7Q4qzRck92JnujM9uEkfog8F97rJMBEEP0L8BdU-tlaTfM2nFTFReawP/exec";
 
         form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+          e.preventDefault();
+          const ok1 = validateEmail(true);
+          const ok2 = validateTel(true);
+          if (!(ok1 && ok2)) {
+            if (!ok1) { email.reportValidity(); email.focus(); }
+            else { tel.reportValidity(); tel.focus(); }
+            return;
+          }
 
-    // 1) valida email/telefono
-    const ok1 = validateEmail(true);
-    const ok2 = validateTel(true);
-    if (!(ok1 && ok2)) {
-      if (!ok1) { email.reportValidity(); email.focus(); }
-      else { tel.reportValidity(); tel.focus(); }
-      return;
-    }
+          const fd = new FormData(form);
+          const tipo = (form.querySelector('input[name="tipo_richiesta"]:checked') || {}).value || "";
+          fd.append('tipo', tipo);
 
-    // 2) raccogli i dati
-    const fd = new FormData(form);
-    // radio
-    const tipo = (form.querySelector('input[name="tipo_richiesta"]:checked') || {}).value || "";
-    fd.append('tipo', tipo);   // lo inviamo come "tipo" lato server
+          fd.delete('articoli[]');
+          Array.from(form.querySelectorAll('input[name="articoli[]"]:checked'))
+               .forEach(i => fd.append('articoli[]', i.value));
 
-    // checkbox multipli (articoli/versioni)
-    fd.delete('articoli[]'); // nel dubbio puliamo
-    Array.from(form.querySelectorAll('input[name="articoli[]"]:checked'))
-         .forEach(i => fd.append('articoli[]', i.value));
+          fd.delete('versioni[]');
+          Array.from(form.querySelectorAll('input[name="versioni[]"]:checked'))
+               .forEach(i => fd.append('versioni[]', i.value));
 
-    fd.delete('versioni[]');
-    Array.from(form.querySelectorAll('input[name="versioni[]"]:checked'))
-         .forEach(i => fd.append('versioni[]', i.value));
+          fd.append('nome', fd.get('nominativo') || "");
+          fd.append('privacy', document.getElementById('privacy')?.checked ? 'true' : 'false');
 
-    // normalizza alcuni nomi per il server
-    fd.append('nome', fd.get('nominativo') || "");
-    fd.append('privacy', document.getElementById('privacy')?.checked ? 'true' : 'false');
+          const statusEl = document.getElementById('form-status');
+          const submitBtn = form.querySelector('button[type="submit"]');
 
-    const statusEl = document.getElementById('form-status');
-    const submitBtn = form.querySelector('button[type="submit"]');
+          try {
+            statusEl.textContent = "Invio in corso…";
+            submitBtn.disabled = true;
 
-    try {
-      statusEl.textContent = "Invio in corso…";
-      submitBtn.disabled = true;
+            await fetch(SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: fd
+            });
 
-      // 3) invio senza CORS (niente header Content-Type!)
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: fd
-      });
+            statusEl.textContent = "Richiesta inviata con successo. Ti risponderemo a breve.";
+            form.reset();
 
-      // Con no-cors la risposta è "opaque": non si può leggere,
-      // ma se non lancia eccezioni l’invio è riuscito.
-      statusEl.textContent = "Richiesta inviata con successo. Ti risponderemo a breve.";
-      form.reset();
+            const vFieldset = document.getElementById('versions-fieldset');
+            const vContainer = document.getElementById('versions-container');
+            if (vContainer) vContainer.innerHTML = "";
+            if (vFieldset) vFieldset.hidden = true;
 
-      const vFieldset = document.getElementById('versions-fieldset');
-      const vContainer = document.getElementById('versions-container');
-      if (vContainer) vContainer.innerHTML = "";
-      if (vFieldset) vFieldset.hidden = true;
+          } catch (err) {
+            statusEl.textContent = "Errore di rete. Controlla la connessione e riprova.";
+          } finally {
+            submitBtn.disabled = false;
+          }
+        });
 
-    } catch (err) {
-      statusEl.textContent = "Errore di rete. Controlla la connessione e riprova.";
-    } finally {
-      submitBtn.disabled = false;
-    }
-    });
-
-        /* ===== Versioni dinamiche in base agli articoli selezionati (come prima) ===== */
         const versionsMap = {
           nocciolo: ["Nocciolo — Inserto in ottone M/F (M5/M6/M8/M10)", "Nocciolo — Gancio rapido bloccante (fori Ø 8/10/12)"],
           scopino: ["Scopino — Compatto con inserto in ottone (5/8/10/12/14/17 cm)", "Scopino — Perno laterale pieghevole (50/100 cm)"],
@@ -436,16 +539,15 @@
           vFieldset.hidden = false;
         }
         artList.addEventListener('change', updateVersions);
-        // Preselezione da query string (?articolo=scopino&articolo=...)
+
         const params = new URLSearchParams(location.search);
         const qs = params.getAll('articolo');
         if (qs.length) {
           qs.forEach(q => {
             const key = q.toLowerCase();
-            const input = Array.from(artList.querySelectorAll('input[type="checkbox"]')).find(i => i.dataset.key === key || i.value.toLowerCase() === key);
-            if (input) {
-              input.checked = true;
-            }
+            const input = Array.from(artList.querySelectorAll('input[type="checkbox"]'))
+              .find(i => i.dataset.key === key || i.value.toLowerCase() === key);
+            if (input) input.checked = true;
           });
           updateVersions();
         }
