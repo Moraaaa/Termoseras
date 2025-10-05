@@ -15,7 +15,7 @@
   --blue: #2b6cff;
   --aqua: #5ee7ff;
   /* layout */
-  --max-w: 1200px;
+  --max-w: clamp(1200px, 92vw, 1600px);
   --gutter: clamp(16px, 5vw, 28px);
   /* margine orizzontale unico */
   --radius: 22px;
