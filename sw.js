@@ -3,35 +3,37 @@ const CACHE_VERSION = 'v1.0.0';             // ↑ cambia quando aggiorni asset
 const PRECACHE_NAME = `precache-${CACHE_VERSION}`;
 const RUNTIME_NAME  = `runtime-${CACHE_VERSION}`;
 
+const BASE = new URL(self.registration.scope).pathname;
+
 // ✅ Elenco degli asset "di sito" da scaricare UNA volta alla prima visita
 // Metti file realmente usati su tutto il sito (logo, css, js, font, immagini comuni).
 const PRECACHE_URLS = [
-  '/',                 // homepage (verrà aggiornata con strategia runtime)
-  '/style.css',
-  '/assets/logo.svg',
-  '/assets/soloscritta.svg',
-  '/assets/logotrea.svg',
-  '/assets/darklogo.png',
-  '/assets/lightlogo.png',
+  `${BASE}`,                 // homepage (verrà aggiornata con strategia runtime)
+  `${BASE}style.css`,
+  `${BASE}assets/logo.svg`,
+  `${BASE}assets/soloscritta.svg`,
+  `${BASE}assets/logotrea.svg`,
+  `${BASE}assets/darklogo.png`,
+  `${BASE}assets/lightlogo.png`,
 
   // Font self-hosted (se li hai). Se usi Google Fonts, meglio runtime cache.
   // '/assets/fonts/montserrat-400.woff2',
   // '/assets/fonts/montserrat-600.woff2',
 
   // Immagini ricorrenti in più pagine:
-  '/assets/noccioli.jpg',
-  '/assets/scopini.jpg',
-  '/assets/riccipvc.jpg',
-  '/assets/qualità.jpg',
-  '/assets/compatibilità.jpg',
-  '/assets/tempiecontrollo.jpg',
-  '/assets/fotoinarrivo.svg',
-  '/assets/videoinarrivo.svg',
-  '/assets/1.png',
-  '/assets/controlloqualità.jpg',
-  '/assets/hero-chisiamo.svg',
-  '/assets/hero-contatti.svg',
-  '/assets/stock.jpg',
+  `${BASE}assets/noccioli.jpg`,
+  `${BASE}assets/scopini.jpg`,
+  `${BASE}assets/riccipvc.jpg`,
+  `${BASE}assets/qualità.jpg`,
+  `${BASE}assets/compatibilità.jpg`,
+  `${BASE}assets/tempiecontrollo.jpg`,
+  `${BASE}assets/fotoinarrivo.svg`,
+  `${BASE}assets/videoinarrivo.svg`,
+  `${BASE}assets/1.png`,
+  `${BASE}assets/controlloqualità.jpg`,
+  `${BASE}assets/hero-chisiamo.svg`,
+  `${BASE}assets/hero-contatti.svg`,
+  `${BASE}assets/stock.jpg`,
 
   // JS comuni (se esistono), icone, sprite, ecc.
   // '/scripts/main.js',
