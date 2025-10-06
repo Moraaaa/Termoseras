@@ -1,6 +1,6 @@
 /* ===========================================================
    Termoseras — Design System (mobile-first, accessibile)
-   Versione rifinita: tipografia e layout fluidi, niente duplicati
+   Build: layout & type fluidi + viewport stabile (no font-jumps)
    =========================================================== */
 
 /* --------------------- TOKENS --------------------- */
@@ -19,8 +19,9 @@
 
   /* layout globali */
   --max-w: clamp(1200px, 92vw, 1600px);     /* cap elastico */
-  --gutter: clamp(20px, 2.5vw, 32px);       /* margine laterale percepito */
-  --header-h: clamp(56px, 7svh, 84px);      /* altezza header fluida */
+  --gutter: clamp(20px, 2.5vw, 32px);       /* margini laterali “percepiti” */
+  --header-h: clamp(56px, 7svh, 84px);      /* altezza header fluida (corpo) */
+  --header-top-gap: clamp(6px, 1.2vh, 12px);/* aria sopra l’header */
   --section-pad: clamp(36px, 6vw, 96px);    /* padding verticale sezioni */
   --radius: 22px;
   --radius-sm: 16px;
@@ -29,31 +30,35 @@
   /* griglie/cards */
   --gap: 18px;
   --tile-w: 340px;   /* card generiche */
-  --sheet-w: 320px;  /* schede prodotto (prodotti.html) */
+  --sheet-w: 320px;  /* schede prodotto */
 
   /* spaziatura (step) */
   --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
   --s-8: 32px; --s-10: 40px; --s-12: 48px;
 
-  /* tipografia fluida */
-  --font-s:   clamp(14px, 0.20vw + 13px, 15px);
-  --font-m:   clamp(16px, 0.35vw + 14px, 18px);
-  --font-l:   clamp(20px, 0.85vw + 16px, 28px);
-  --font-xl:  clamp(28px, 1.50vw + 20px, 42px);
-  --font-xxl: clamp(36px, 2.80vw + 24px, 60px);
+  /* tipografia fluida: slope più bassa = meno jitter */
+  --font-s:   clamp(13px, 0.15vw + 12px, 15px);
+  --font-m:   clamp(16px, 0.20vw + 14px, 18px);
+  --font-l:   clamp(18px, 0.50vw + 14px, 24px);
+  --font-xl:  clamp(26px, 1.10vw + 18px, 40px);
+  --font-xxl: clamp(32px, 2.10vw + 18px, 56px);
 }
 
 /* --------------------- RESET / BASE --------------------- */
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
+
+/* Viewport stabile: riserva sempre il canale della scrollbar */
+html{
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
 img,video{
   display:block; max-width:100%; height:auto; object-fit:cover;
 }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; }
-
-html{ scrollbar-width:none; -ms-overflow-style:none; }
-html::-webkit-scrollbar, body::-webkit-scrollbar{ display:none; }
 
 body{
   background:var(--bg);
@@ -65,7 +70,7 @@ body{
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Montserrat self-hosted (come nel tuo progetto) */
+/* Montserrat self-hosted */
 @font-face{
   font-family:'Montserrat';
   src:url('assets/fonts/Montserrat-Regular.woff2') format('woff2');
@@ -99,7 +104,7 @@ p{ margin:0 0 var(--s-4); }
 /* Sezioni standard */
 .section{ padding-block:var(--section-pad); }
 
-/* Sezioni centrate verticalmente (per blocchi prodotti) */
+/* Sezioni centrate verticalmente (prodotti) */
 .section--vcenter{ padding-block:8vh; }
 .section--vcenter .container{
   min-height: calc(100svh - var(--header-h) - 16vh);
@@ -128,56 +133,95 @@ p{ margin:0 0 var(--s-4); }
   font-size:12px; color:var(--aqua);
 }
 
-/* --------------------- HEADER (sito) --------------------- */
+/* --------------------- HEADER (sito) — FLUIDO --------------------- */
 .site-header{
-  position:absolute; inset:0 0 auto 0; height:var(--header-h);
-  z-index:10; background:transparent;
+  position:absolute;
+  inset:0 0 auto 0;
+  height: calc(var(--header-h) + var(--header-top-gap));                     /* gap sopra */
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-top-gap));  /* supporto notch */
+  z-index:10;
+  background:transparent;
 }
 .site-nav{
   height:100%;
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   gap: clamp(10px, 1.5vw, 24px);
+  position:relative;
 }
+
+/* brand (link a home) */
 .brand{
   display:flex; align-items:center; gap:10px;
   font-weight:800; letter-spacing:.12em; text-transform:uppercase;
 }
-.brand__dot{ width:10px; height:10px; border-radius:50%; background:linear-gradient(45deg,var(--aqua),var(--blue)); }
 
-/* --- LOGHI --- */
+/* LOGHI */
 .logo-desktop-left{
-  display:block; height: clamp(110px, 12vw, 180px);
-  filter:brightness(0) invert(1);
+  display:block;
+  height: clamp(110px, 12vw, 180px); /* scala con la viewport */
+  filter: brightness(0) invert(1);
+  line-height:0;
 }
-.logo-center{ position:absolute; left:50%; transform:translateX(-50%); }
+.logo-center{
+  position:absolute; left:50%; transform:translateX(-50%);
+}
 .logo-center img{
-  height: clamp(36px, 4.8vw, 72px); filter:brightness(0) invert(1);
+  height: clamp(36px, 4.8vw, 72px); /* scala come le voci del menu */
+  filter: brightness(0) invert(1);
+  line-height:0;
 }
 .logo-mobile-left{
-  display:none; height: clamp(32px, 5vw, 40px);
-  filter:brightness(0) invert(1);
+  display:none;
+  height: clamp(32px, 5vw, 40px);
+  filter: brightness(0) invert(1);
+  line-height:0;
 }
 
-/* --- NAV DESKTOP --- */
-.nav-links{ display:flex; gap: clamp(18px, 2.2vw, 38px); }
-.nav-links a{ color:#fff; font-size:var(--font-s); line-height:1; }
-.nav-links a:hover{ opacity:.95; }
+/* NAV DESKTOP */
+.nav-links{
+  display:flex; align-items:center;
+  gap: clamp(14px, 2vw, 36px);             /* gap fluido senza oscillazioni */
+}
+.nav-links a{
+  color:#fff;
+  font-size: clamp(13px, 0.45vw + 11px, 18px);  /* 13 → 18, pendenza dolce */
+  line-height:1;
+  padding: clamp(6px, 0.6vw, 10px) clamp(4px, 0.6vw, 10px);
+  border-radius: 10px;
+}
+.nav-links a:hover{ background: rgba(255,255,255,.06); }
+.nav-links a:focus-visible{
+  outline:2px solid var(--aqua);
+  outline-offset:2px;
+}
 
-/* --- BURGER --- */
+/* BURGER */
 .burger{
-  display:none; flex-direction:column; justify-content:center; gap:4px;
-  width: clamp(32px, 4vw, 40px); height: clamp(32px, 4vw, 40px); cursor:pointer;
+  display:none;                     /* visibile solo su mobile */
+  flex-direction:column;
+  justify-content:center;
   align-items:center;
+  gap: clamp(3px, 0.5vw, 5px);
+  width: clamp(32px, 4vw, 40px);
+  height: clamp(32px, 4vw, 40px);
+  cursor:pointer;
 }
 .burger__bar{
-  height:2px; width: clamp(18px, 2.6vw, 24px); background:var(--primary);
-  border-radius:1px; transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
+  width: clamp(18px, 2.6vw, 24px);
+  height:2px;
+  background:#fff;
+  border-radius:1px;
+  transition: transform .2s ease, opacity .2s ease, background-color .2s ease;
 }
 .burger:hover .burger__bar{ background-color:#cfefff; }
 
-/* --- RESPONSIVE HEADER --- */
+/* RESPONSIVE: mobile */
 @media (max-width:768px){
-  .nav-links, .logo-center, .logo-desktop-left{ display:none; }
+  .nav-links,
+  .logo-center,
+  .logo-desktop-left{ display:none; }
   .logo-mobile-left{ display:block; }
   .burger{ display:flex; }
 }
@@ -204,7 +248,7 @@ p{ margin:0 0 var(--s-4); }
 .hero__title{ margin:10px 0 12px; font-size: clamp(28px, 6vw, 56px); line-height:1.05; }
 .hero__text{ margin:0 0 22px; color:var(--aqua); font-size: clamp(14px, 1.2vw, 20px); }
 
-/* Variante: immagine intera (centered), bordi neri, testo in basso */
+/* Variante: immagine intera centrata (bordi neri), testo in basso */
 .hero--centered{
   position:relative; isolation:isolate;
   background-color:#000; background-image:var(--hero);
@@ -228,7 +272,7 @@ p{ margin:0 0 var(--s-4); }
 .section__title{ margin:0; font-size: clamp(22px, 3.5vw, 32px); }
 .section__desc{ margin:0; color:var(--muted); max-width:560px; font-size:15px; }
 
-/* Griglia classica (cards 3/row su desktop via 12-col grid) */
+/* Griglia classica (cards 3/row via 12-col) */
 .grid{ display:grid; gap:var(--gap); }
 .grid--cards{ grid-template-columns:repeat(12,1fr); }
 @media (min-width:1025px){ .grid--cards > .card{ grid-column:span 4; } }
@@ -266,6 +310,11 @@ p{ margin:0 0 var(--s-4); }
   .tiles-3 > .card{ flex-basis:100%; max-width:520px; }
   .tiles-3{ justify-content:center; }
 }
+
+/* Alias legacy (se in qualche pagina usi ancora .cards-wrap) */
+.cards-wrap{ display:flex; flex-wrap:wrap; gap:var(--gap); justify-content:center; }
+.cards-wrap > .card{ width:var(--tile-w); max-width:92vw; }
+.cards-wrap--sheets > .card{ width:var(--sheet-w); }
 
 /* --------------------- CARDS / TABLES --------------------- */
 .card{
@@ -353,7 +402,9 @@ p{ margin:0 0 var(--s-4); }
 }
 .menu-head__inner{
   display:flex; align-items:center; justify-content:space-between;
-  position:relative; height: clamp(56px, 7svh, 84px);
+  position:relative;
+  height: calc(clamp(56px, 7svh, 84px) + var(--header-top-gap));
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-top-gap));
 }
 .menu-head__logo{
   display:block; height:40px; filter:brightness(0) invert(1); line-height:0;
