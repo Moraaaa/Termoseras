@@ -77,13 +77,18 @@
       <div class="container" style="padding:16px;color:#9aa4ad">JavaScript disabilitato: usa i link sopra per navigare.</div>
     </noscript>
     <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' })
-        .catch(console.error);
-    });
-  }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('./sw.js', { scope: './' });
+      console.log('SW registrato:', reg.scope);
+    } catch (e) {
+      console.error('SW errore registrazione:', e);
+    }
+  });
+}
 </script>
+
 
   </body>
 </html>
