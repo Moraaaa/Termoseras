@@ -340,5 +340,15 @@
       gtag('js', new Date());
       gtag('config', 'G-VLEC2STHFB', { anonymize_ip: true });
     </script>
+
+    <!-- ✅ Service Worker: registra /sw.js per precache degli asset di sito -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .catch(console.error);
+        });
+      }
+    </script>
   </body>
 </html>

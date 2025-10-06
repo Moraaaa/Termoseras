@@ -705,9 +705,6 @@ p {
   /* spazio costante fra titolo e bottone */
   padding: 20px 20px 24px;
 }
-#gamma-prodotti .card__actions {
-  /* niente auto: distanza fissa dal titolo via gap */
-}
 #gamma-prodotti .card__actions .btn {
   display: inline-block;
   /* misura naturale del bottone */

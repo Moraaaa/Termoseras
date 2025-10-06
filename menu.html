@@ -76,5 +76,14 @@
     <noscript>
       <div class="container" style="padding:16px;color:#9aa4ad">JavaScript disabilitato: usa i link sopra per navigare.</div>
     </noscript>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .catch(console.error);
+    });
+  }
+</script>
+
   </body>
 </html>
