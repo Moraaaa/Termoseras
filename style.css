@@ -160,7 +160,7 @@ p{ margin:0 0 var(--s-4); }
 /* LOGHI */
 .logo-desktop-left{
   display:block;
-  height: clamp(110px, 12vw, 180px); /* scala con la viewport */
+  height: clamp(110px, 16vw, 180px); /* scala con la viewport */
   filter: brightness(0) invert(1);
   line-height:0;
 }
@@ -560,5 +560,79 @@ fieldset{ border:0; padding:0; margin:0; }
     animation-iteration-count:1 !important;
     transition-duration:.001ms !important;
     scroll-behavior:auto !important;
+  }
+}
+/* ===== Scrollbar moderna (stabile) ===== */
+
+/* 1) Viewport stabile: già presente più sopra, ma lo ricordo */
+html{
+  overflow-y: scroll;        /* canale sempre presente */
+  scrollbar-gutter: stable;  /* spazio riservato = no salti */
+}
+
+/* 2) Applica lo stile solo su dispositivi con mouse (desktop/laptop) */
+@media (pointer: fine){
+
+  /* Firefox */
+  html{
+    scrollbar-width: thin;                         /* sottile, ma non “none” */
+    scrollbar-color: rgba(255,255,255,.35)         /* pollice */
+                     rgba(255,255,255,.06);        /* traccia */
+  }
+
+  /* WebKit (Chrome, Edge, Safari) */
+  /* larghezze fisse = nessun “scaling” con il viewport */
+  ::-webkit-scrollbar{
+    width: 12px;          /* verticale */
+    height: 12px;         /* orizzontale, se compare */
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: rgba(255,255,255,.06);   /* traccia discreta su sfondo scuro */
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,.35);   /* pollice chiaro */
+    border-radius: 10px;
+    border: 3px solid transparent;       /* “pill” con spazio interno */
+    background-clip: content-box;        /* mantiene il bordo trasparente */
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+    background: rgba(255,255,255,.55);   /* feedback al passaggio */
+    background-clip: content-box;
+  }
+
+  /* opzionale: angolo di incontro delle barre (Windows) */
+  ::-webkit-scrollbar-corner{
+    background: rgba(255,255,255,.06);
+  }
+}
+
+/* 3) (opzionale) Scrollbar ancora più sottile su schermi molto larghi */
+@media (pointer: fine) and (min-width: 1600px){
+  ::-webkit-scrollbar{ width: 10px; height: 10px; }
+}
+
+/* 4) (opzionale) Contenitori che scrollano internamente (se ne hai) */
+@media (pointer: fine){
+  .table-scroll, .menu-card, .cards-wrap{
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.35) rgba(255,255,255,.06);
+  }
+  .table-scroll::-webkit-scrollbar,
+  .menu-card::-webkit-scrollbar,
+  .cards-wrap::-webkit-scrollbar{
+    width: 12px; height: 12px;
+  }
+  .table-scroll::-webkit-scrollbar-thumb,
+  .menu-card::-webkit-scrollbar-thumb,
+  .cards-wrap::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,.35);
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: content-box;
   }
 }
