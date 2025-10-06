@@ -14,9 +14,12 @@
   --primary: #e6f2ff;
   --blue: #2b6cff;
   --aqua: #5ee7ff;
+  --antracite: #2c2f36;
   /* layout */
+  /* Il contenuto può allargarsi oltre 1200px ma con un soft-cap */
   --max-w: clamp(1200px, 92vw, 1600px);
-  --gutter: clamp(16px, 5vw, 28px);
+  /* Spaziatura laterale percepita costante (poco variabile) */
+  --gutter: clamp(20px, 2.5vw, 32px);
   /* margine orizzontale unico */
   --radius: 22px;
   --radius-sm: 16px;
@@ -35,6 +38,11 @@
   --s-8: 32px;
   --s-10: 40px;
   --s-12: 48px;
+  --font-s:   clamp(14px, 0.20vw + 13px, 15px);
+  --font-m:   clamp(16px, 0.35vw + 14px, 18px);
+  --font-l:   clamp(20px, 0.85vw + 16px, 28px);
+  --font-xl:  clamp(28px, 1.50vw + 20px, 42px);
+  --font-xxl: clamp(36px, 2.80vw + 24px, 60px);
 } /* --------------------- RESET / BASE --------------------- */
 * {
   box-sizing: border-box;
@@ -69,11 +77,11 @@ body::-webkit-scrollbar {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
-    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font-m);
 }
 /* Font globale */
 html,
@@ -95,11 +103,19 @@ h6 {
   letter-spacing: 0.5px;
 }
 
+/* Scala titoli fluida coerente su tutto il sito */
+h1{ font-size: var(--font-xxl); line-height: 1.06; letter-spacing: -.01em; }
+h2{ font-size: var(--font-xl);  line-height: 1.12; letter-spacing: -.01em; }
+h3{ font-size: var(--font-l);   line-height: 1.18; }
+h4{ font-size: var(--font-m); }
+
+.eyebrow, .nav-links a { font-size: var(--font-s); }
+
 /* --------------------- UTILITIES --------------------- */
-.container {
-  max-width: var(--max-w);
+.container{
+  /* Larghezza = tutto lo schermo meno i due gutter, ma non oltre --max-w */
+  width: min(100% - (2 * var(--gutter)), var(--max-w));
   margin-inline: auto;
-  padding-inline: var(--gutter);
 }
 .visually-hidden {
   position: absolute !important;
@@ -260,7 +276,40 @@ p {
 .hero__text {
   margin: 0 0 22px;
   color: var(--aqua);
-} /* --------------------- SECTIONS / GRIDS --------------------- */
+}
+/* Variante hero con immagine centrata e margini neri */
+/* Variante hero con immagine centrata e margini neri, testo in basso */
+.hero--centered {
+  position: relative;
+  isolation: isolate;
+  background-color: #000;
+  background-image: var(--hero);
+  background-size: contain;        /* 👈 mostra tutta l’immagine */
+  background-position: center;     /* 👈 centrata orizzontalmente e verticalmente */
+  background-repeat: no-repeat;
+  height: 100svh;                  /* 👈 riempie tutta l’altezza dello schermo */
+  display: grid;
+  place-items: end;                /* 👈 testo in basso come prima */
+}
+.hero--centered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 0.7) 85%
+  );
+  z-index: 1;
+}
+.hero--centered .hero__inner {
+  z-index: 2;
+  width: 100%;
+  margin-bottom: var(--bottom-offset); /* mantiene la distanza dal fondo */
+  text-align: center;
+}
+
+/* --------------------- SECTIONS / GRIDS --------------------- */
 .section {
   padding-block: 64px;
 }
@@ -985,7 +1034,7 @@ fieldset {
 /* --- LOGHI --- */
 .logo-desktop-left {
   display: block;
-  height: 200px; /* logo scritta a sinistra (desktop) */
+  height: 150px; /* logo scritta a sinistra (desktop) */
   filter: brightness(0) invert(1); /* lo rende bianco */
 }
 
@@ -1166,4 +1215,34 @@ fieldset {
 @media (max-width: 640px){
   .policy-table th,
   .policy-table td{ padding: 8px 10px; }
+}
+/* ====== Griglia unificata 3-col con ultima riga centrata ====== */
+.tiles-3{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: center;             /* centra l’ultima riga con 1-2 card */
+}
+
+/* larghezza “a 3 colonne” su desktop */
+.tiles-3 > .card{
+  flex: 0 1 calc((100% - 2 * var(--gap)) / 3); /* 3 col, 2 gap */
+  max-width: calc((100% - 2 * var(--gap)) / 3);
+}
+
+/* tablet: 2 colonne (centrare ultima riga) */
+@media (max-width: 1024px){
+  .tiles-3 > .card{
+    flex-basis: calc((100% - var(--gap)) / 2);
+    max-width:  calc((100% - var(--gap)) / 2);
+  }
+}
+
+/* mobile: 1 col, card centrata e non troppo larga */
+@media (max-width: 760px){
+  .tiles-3 > .card{
+    flex-basis: 100%;
+    max-width: 520px;                   /* limite opzionale per estetica */
+  }
+  .tiles-3{ justify-content: center; }
 }

@@ -19,6 +19,13 @@
     </script>
   </head>
   <body>
+    <script>
+  // Blocca l'accesso diretto se non si arriva da una pagina interna
+  if (!document.referrer.includes(window.location.origin)) {
+    window.location.href = "index.html"; // rimanda alla home
+  }
+</script>
+
     <!-- HEADER MENU (solo mobile) -->
     <header class="menu-head" role="banner" aria-label="Menu">
       <div class="container menu-head__inner">

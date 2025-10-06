@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
   <title>Privacy Policy – Termoseras</title>
   <meta name="description" content="Informativa privacy – Termoseras">
   <link rel="stylesheet" href="style.css">
@@ -10,95 +11,184 @@
   <link rel="icon" type="image/png" href="assets/lightlogo.png" media="(prefers-color-scheme: dark)">
 </head>
 <body>
-  <!-- HEADER MINIMALE (opzionale: puoi copiare il tuo header completo se vuoi) -->
-  <header class="site-header" role="banner">
-    <div class="container site-nav">
-      <a class="brand" href="index.html"><img src="assets/soloscritta.svg" class="logo-desktop-left"><img src="assets/logo.svg" class="logo-mobile-left"></a>
-      <nav class="nav-links" aria-label="Navigazione principale">
-        <a href="index.html">Home</a>
-        <a href="prodotti.html">Prodotti</a>
-        <a href="chi-siamo.html">Chi siamo</a>
-        <a href="contatti.html">Contatti</a>
-      </nav>
-    </div>
-  </header>
+  <script>
+  // Blocca l'accesso diretto se non si arriva da una pagina interna
+  if (!document.referrer.includes(window.location.origin)) {
+    window.location.href = "index.html"; // rimanda alla home
+  }
+</script>
+
+  <!-- TOP BAR MINIMALE -->
+   <br>
+<div class="container" style="height:70px; display:flex; align-items:center; justify-content:space-between;">
+  <a href="#" data-back aria-label="Torna alla pagina precedente" class="btn" style="margin:0">← Torna alla pagina</a>
+</div>
+
 
   <section class="section" aria-label="Privacy Policy">
-    <div class="container">
-      <div class="section__head">
-        <h1 class="section__title"><br>Privacy Policy</h1>
-      </div>
+  <div class="container">
+    <div class="section__head">
+      <h1 class="section__title">Privacy Policy</h1>
+    </div>
 
-      <div class="card">
-        <div class="card__body">
-          <p><strong>Titolare del trattamento:</strong> Termoseras S.r.l., Via del Lavoro 40, 25030 Castelcovati (BS), Italia – Tel. +39 030 708 0274 – Email: info@treasrl.it</p>
-          <p>Questa informativa descrive come trattiamo i dati personali ai sensi del Reg. (UE) 2016/679 (“GDPR”).</p>
-            <br>
-          <h2 class="card__title">Dati e finalità</h2>
-          <ul class="card__text">
-            <li><strong>Contatti (form custom su questo sito):</strong> i dati inseriti (es. nome, email, telefono, messaggio) sono trattati per rispondere alle richieste e fornire preventivi (art. 6.1.b GDPR).</li>
-            <li><strong>Statistiche (Google Analytics 4):</strong> attive solo previo consenso; servono a misurare l’uso del sito in forma aggregata (art. 6.1.a GDPR).</li>
-          </ul>
-          <br>
-          <h2 class="card__title">Modalità, conservazione, destinatari</h2>
-          <p class="card__text">Trattiamo i dati con strumenti informatici su server di fornitori (es. Google). I dati sono conservati per il tempo necessario alle finalità o quanto previsto dalla legge. Possiamo affidarci a fornitori che operano quali responsabili o autonomi titolari.</p>
-          <br>
-          <h2 class="card__title">Trasferimenti extra UE</h2>
-          <p class="card__text">Alcuni servizi (es. Google) possono comportare trasferimenti extra UE; sono adottate garanzie adeguate secondo normativa applicabile.</p>
-          <br>
-          <h2 class="card__title">Diritti</h2>
-          <p class="card__text">Puoi esercitare i diritti di accesso, rettifica, cancellazione, limitazione, opposizione, portabilità e revocare il consenso in qualsiasi momento. Reclamo: <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">Garante Privacy</a>.</p>
-          <br>
-          <h2 class="card__title">Fornitori</h2>
-          <ul class="card__text">
-            <li><strong>Google Analytics 4</strong>: attivo solo dopo consenso, implementato con Google Consent Mode. Info: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Google</a>.</li>
-            <li><strong>Google Apps Script / Google Workspace</strong>: gestione invii del form. Info: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Google</a>.</li>
-          </ul>
-          <br>
-          <p class="card__text">Per i cookie: vedi la nostra <a href="cookie.html">Cookie Policy</a>. Puoi cambiare preferenze in ogni momento: <a href="#" data-cc="show-preferencesModal" style="text-decoration:underline">Impostazioni cookie</a>.</p>
-          <br>
-          <p class="card__text"><small>Ultimo aggiornamento: <time>2025-10-03</time>. Testo informativo non sostitutivo di consulenza legale.</small></p>
-        </div>
+    <div class="card">
+      <div class="card__body">
+        <p><strong>Titolare del trattamento:</strong> Termoseras S.r.l., Via del Lavoro 40, 25030 Castelcovati (BS), Italia — Tel. +39 030 708 0274 — Email: <a href="mailto:info@treasrl.it">info@treasrl.it</a></p>
+
+        <p>Ai sensi dell’art. 13 del Regolamento (UE) 2016/679 (“GDPR”), Termoseras S.r.l. informa gli utenti sulle modalità e finalità del trattamento dei dati personali raccolti tramite il presente sito web.</p>
+
+        <br>
+        <h2 class="card__title">1. Tipologie di dati trattati</h2>
+        <ul class="card__text">
+          <li><strong>Dati forniti volontariamente:</strong> informazioni inserite nei moduli di contatto o inviate via email (nome, cognome, email, telefono, messaggio) per ricevere risposte o preventivi.</li>
+          <li><strong>Dati di navigazione:</strong> indirizzo IP, log tecnici e dati statistici raccolti in forma aggregata e anonima (vedi Cookie Policy).</li>
+        </ul>
+
+        <br>
+        <h2 class="card__title">2. Finalità e base giuridica</h2>
+        <ul class="card__text">
+          <li><strong>Contatto e preventivi:</strong> rispondere alle richieste inviate tramite form o email — <em>base giuridica:</em> art. 6.1.b GDPR (esecuzione di misure precontrattuali).</li>
+          <li><strong>Analisi statistiche:</strong> migliorare il sito e l’esperienza utente, solo previo consenso — <em>base giuridica:</em> art. 6.1.a GDPR (consenso).</li>
+          <li><strong>Adempimenti legali e sicurezza:</strong> rispettare obblighi di legge e tutelare i diritti del Titolare — <em>base giuridica:</em> art. 6.1.c–f GDPR.</li>
+        </ul>
+
+        <br>
+        <h2 class="card__title">3. Conferimento dei dati</h2>
+        <p class="card__text">Il conferimento dei dati nei campi contrassegnati come obbligatori è necessario per inviare il form di contatto. In caso di mancato conferimento, non sarà possibile evadere la richiesta.</p>
+
+        <br>
+        <h2 class="card__title">4. Modalità del trattamento e sicurezza</h2>
+        <p class="card__text">I dati sono trattati con strumenti informatici e telematici, in modo lecito e trasparente, adottando misure tecniche e organizzative idonee a garantirne la riservatezza e l’integrità. L’accesso ai dati è consentito solo a personale autorizzato.</p>
+
+        <br>
+        <h2 class="card__title">5. Conservazione dei dati</h2>
+        <p class="card__text">
+          I dati personali inviati tramite form di contatto o posta elettronica vengono conservati all’interno dei sistemi di posta aziendale del Titolare.  
+          Tali dati sono mantenuti per il tempo necessario alla gestione delle richieste o dei rapporti instaurati e successivamente archiviati per finalità di tutela legale e amministrativa, in conformità all’art. 5, par. 1, lett. e) del GDPR.  
+          Le email possono essere conservate a tempo indeterminato, purché pertinenti alle finalità aziendali e accessibili solo a personale autorizzato.
+        </p>
+
+        <br>
+        <h2 class="card__title">6. Destinatari e responsabili del trattamento</h2>
+        <p class="card__text">I dati possono essere comunicati a soggetti terzi che forniscono servizi connessi alla gestione del sito (es. hosting, posta elettronica, manutenzione IT), nominati Responsabili del trattamento ai sensi dell’art. 28 GDPR. L’elenco aggiornato è disponibile su richiesta scrivendo a <a href="mailto:info@treasrl.it">info@treasrl.it</a>.</p>
+
+        <br>
+        <h2 class="card__title">7. Trasferimenti extra UE</h2>
+        <p class="card__text">Alcuni fornitori, come Google LLC (USA), possono trattare dati in Paesi extra UE. In tali casi, il trasferimento avviene sulla base delle <em>Standard Contractual Clauses</em> approvate dalla Commissione Europea (art. 46 GDPR).</p>
+
+        <br>
+        <h2 class="card__title">8. Diritti dell’interessato</h2>
+        <p class="card__text">Puoi esercitare in ogni momento i diritti previsti dagli artt. 15–22 del GDPR (accesso, rettifica, cancellazione, limitazione, opposizione, portabilità, revoca del consenso) scrivendo a <a href="mailto:info@treasrl.it">info@treasrl.it</a>.  
+        È inoltre possibile proporre reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">Garante per la Protezione dei Dati Personali</a>.</p>
+
+        <br>
+        <h2 class="card__title">9. DPO e processi automatizzati</h2>
+        <p class="card__text">Non è stato nominato un Responsabile della Protezione dei Dati (DPO). Non vengono effettuate decisioni automatizzate o attività di profilazione.</p>
+
+        <br>
+        <h2 class="card__title">10. Cookie e servizi di terze parti</h2>
+        <ul class="card__text">
+          <li><strong>Google Analytics 4</strong> (Google LLC, USA): attivo solo previo consenso, con IP anonimizzato. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+          <li><strong>Google Workspace / Apps Script</strong>: gestione invii del form. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+        </ul>
+        <p class="card__text">Per maggiori informazioni consulta la nostra <a href="cookie.html">Cookie Policy</a>.</p>
+
+        <br>
+        <p class="card__text"><small>Ultimo aggiornamento: <time>2025-10-06</time>.  
+        Questo testo ha valore informativo generale e non sostituisce la consulenza legale personalizzata.</small></p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-      <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <h4 class="footer-col__title">TERMOSERAS</h4>
-            <p>Parte del <strong>Gruppo Tre A</strong>
-            </p>
-            <img width="100px" src="assets/logotrea.svg">
-          </div>
-          <div class="footer-col">
-            <h4 class="footer-col__title">AZIENDA</h4>
-            <a href="chi-siamo.html">Chi siamo</a>
-            <a href="contatti.html">Contatti</a>
-          </div>
-          <div class="footer-col">
-            <h4 class="footer-col__title">PRODOTTI</h4>
-            <a href="#nocciolo">Nocciolo</a>
-            <a href="#scopino">Scopino</a>
-            <a href="#riccio-pvc">Riccio in PVC</a>
-            <a href="#manico-riccio">Manico per riccio</a>
-            <a href="#tazze">Tazze</a>
-            <a href="#rullino">Rullino portarotoli</a>
-          </div>
-          <div class="footer-col">
-            <h4 class="footer-col__title">LEGALE</h4>
-            <a href="privacy.html">Privacy</a>
-            <a href="cookie.html">Cookie</a>
-            <a href="#" data-cc="show-preferencesModal">Impostazioni cookie</a>
-          </div>
-        </div>
-        <div class="footer-copy">
-          <small>Copyright © 2025 Termoseras S.r.l. <br>Tutti i diritti riservati.</small>
-          <small>Made in Italy</small>
-        </div>
-      </div>
-    </footer>
+  <script>
+  (function(){
+    const btn = document.querySelector('[data-back]');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const ref = document.referrer;
+      try {
+        if (ref) {
+          const u = new URL(ref);
+          // stessa origine? torna lì, puntando al footer
+          if (u.origin === location.origin) {
+            u.hash = 'footer';
+            location.href = u.toString();
+            return;
+          }
+        }
+      } catch(_) {}
+      // fallback
+      location.href = 'index.html#footer';
+    });
+  })();
+</script>
+<!-- Cookie banner + integrazione Consent Mode -->
+<script type="module">
+  import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+
+  function updateGtagConsent() {
+    const isGranted = (service, cat) =>
+      CookieConsent.acceptedService(service, cat) ? 'granted' : 'denied';
+    if (typeof gtag !== 'function') return;
+    gtag('consent','update', {
+      analytics_storage:     isGranted('analytics_storage','analytics'),
+      functionality_storage: isGranted('functionality_storage','functionality'),
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+  }
+
+  CookieConsent.run({
+    mode: 'opt-in',
+    cookie: { name: 'cc_cookie' },            // ← stessa chiave dei restanti file
+    guiOptions: {
+      consentModal:     { layout: 'cloud inline', position: 'bottom center', equalWeightButtons: true },
+      preferencesModal: { layout: 'box' }
+    },
+    categories: {
+      necessary:   { enabled: true, readOnly: true },
+      analytics:   {
+        autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] },
+        services: { analytics_storage: { label: 'Abilita cookie di analisi (Google Analytics 4)' } }
+      },
+      functionality: {
+        services: { functionality_storage: { label: 'Abilita contenuti esterni (es. moduli, mappe)' } }
+      }
+    },
+    language: {
+      default: 'it',
+      translations: {
+        it: {
+          consentModal: {
+            title: 'Usiamo i cookie',
+            description: 'Utilizziamo cookie tecnici e, previo consenso, cookie analitici per migliorare il sito. Puoi accettare tutti o gestire le preferenze.',
+            acceptAllBtn: 'Accetta tutti',
+            acceptNecessaryBtn: 'Rifiuta non necessari',
+            showPreferencesBtn: 'Impostazioni cookie',
+            footer: `<a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a>`
+          },
+          preferencesModal: {
+            title: 'Gestisci preferenze cookie',
+            acceptAllBtn: 'Accetta tutti',
+            acceptNecessaryBtn: 'Rifiuta non necessari',
+            savePreferencesBtn: 'Salva preferenze',
+            sections: [
+              { title: 'Necessari', description: 'Sempre attivi per il funzionamento del sito.', linkedCategory: 'necessary' },
+              { title: 'Analitici', description: 'Statistiche anonime per migliorare il sito.', linkedCategory: 'analytics' },
+              { title: 'Funzionalità esterne', description: 'Abilita contenuti di terze parti (es. moduli, mappe).', linkedCategory: 'functionality' }
+            ]
+          }
+        }
+      }
+    },
+    onFirstConsent: updateGtagConsent,
+    onConsent:      updateGtagConsent,
+    onChange:       updateGtagConsent
+  });
+</script>
+
 </body>
 </html>
