@@ -34,6 +34,8 @@ const PRECACHE_URLS = [
   `${BASE}assets/hero-chisiamo.svg`,
   `${BASE}assets/hero-contatti.svg`,
   `${BASE}assets/stock.jpg`,
+  `${BASE}assets/fonts/montserrat-400.woff2`,
+  `${BASE}assets/fonts/montserrat-600.woff2`
 
   // JS comuni (se esistono), icone, sprite, ecc.
   // '/scripts/main.js',
