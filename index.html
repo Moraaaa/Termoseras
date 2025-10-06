@@ -343,12 +343,17 @@
 
     <!-- ✅ Service Worker: registra /sw.js per precache degli asset di sito -->
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .catch(console.error);
-        });
-      }
-    </script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('./sw.js', { scope: './' });
+      console.log('SW registrato:', reg.scope);
+    } catch (e) {
+      console.error('SW errore registrazione:', e);
+    }
+  });
+}
+</script>
+
   </body>
 </html>
